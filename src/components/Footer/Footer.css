@@ -1,0 +1,31 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #B6BCBF;
+  }
+  
+  .footer__text {
+    width: 433px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+  }
+  
+  .footer__buttons {
+    display: flex;
+  }
+  
+  .footer__button, .footer__icon-button {
+    margin-left: 10px;
+    /* Additional styling for the buttons */
+  }
+  
+  /* Style for your icon buttons */
+  .footer__icon-button {
+    /* Style your icon buttons here */
+  }
+  
