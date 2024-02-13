@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css'; // Import your CSS styles
-// Import icons for the icon buttons if needed
+import github from '../../images/github.svg';
+import facebook from '../../images/fb.svg';
 
 function Footer() {
   return (
@@ -8,12 +9,16 @@ function Footer() {
       <div className="footer__text">
         © 2020 Supersite, Powered by News API
       </div>
-      <div className="footer__buttons">
+      <div className="footer__buttons-right">
         <button className="footer__button">Home</button>
         <button className="footer__button">Triple Ten</button>
-        {/* Replace these with actual icon buttons */}
-        <button className="footer__icon-button">Icon1</button>
-        <button className="footer__icon-button">Icon2</button>
+        <button className="footer__icon-button">
+  <img src={github} alt="github icon" />
+</button>
+<button className="footer__icon-button">
+  <img src={facebook} alt="facebook icon" />
+</button>
+
       </div>
     </footer>
   );

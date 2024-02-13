@@ -8,22 +8,22 @@ import Footer from '../Footer/Footer';
 import NewsPage from '../NewsPage/NewsPage';
 import '../../vendor/Style.css';
 
-// Import other necessary components
-
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Main />
-              <About />
-            </>
-          } />
-          <Route path="/news" element={<NewsPage />} /> {/* Custom route for news */}
-        </Routes>
+      <div className="App">
+        <div className="App__main-wrapper">
+          <Header />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Main />
+              </>
+            } />
+            <Route path="/news" element={NewsPage} />
+          </Routes>
+        </div>
+        <About />
         <Footer />
       </div>
     </Router>

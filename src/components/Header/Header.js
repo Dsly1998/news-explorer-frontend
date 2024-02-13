@@ -19,8 +19,8 @@ function Header({ isLoggedIn, userName }) {
           </>
         ) : (
           <>
-            <button className="header__button">Home</button>
-            <button className="header__button">Sign in</button>
+            <button className="header__button header__button-home">Home</button>
+            <button className="header__button header__button-signin ">Sign in</button>
           </>
         )}
       </div>

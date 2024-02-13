@@ -1,18 +1,22 @@
 .about {
   display: flex;
   align-items: center;
-  padding: 20px;
   justify-content: center;
+  height: 624px;
+  margin: auto;
 }
 
 .about__image {
   width: 464px;
   height: 464px;
-  margin-right: 56px; /* Adjust spacing between image and text */
+  margin-left: 104px; 
+  margin-right: 56px;
 }
 
 .about__text {
   width: 600px;
+  margin-right: 216px;
+  padding-bottom: 180px;
 }
 
 .about__title {
@@ -21,7 +25,9 @@
   font-weight: 400;
   line-height: 46px;
   text-align: left;
-  margin-bottom: 16px; /* Adjust as needed */
+  margin-bottom: 16px;
+  height: 46px;
+  width: 600px;
 }
 
 .about__description {
@@ -30,4 +36,6 @@
   font-weight: 400;
   line-height: 24px;
   text-align: left;
+  width: 600px;
+  height: 120px;
 }

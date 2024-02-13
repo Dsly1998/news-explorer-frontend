@@ -1,48 +1,81 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .main__title {
-    width: 608px;
-    font-family: 'Roboto Slab';
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 64px;
-    text-align: left;
-    margin-bottom: 32px; /* Adjust as needed */
-  }
-  
-  .main__subtitle {
-    width: 608px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: left;
-    margin-bottom: 88px; /* Adjust as needed */
-  }
-  
-  .main__search-bar {
-    width: 608px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .main__search-input {
-    width: 440px; /* Adjusted for button width */
-    height: 64px;
-    border: 1px solid #D1D2D6;
-    padding: 0 12px;
-  }
-  
-  .main__search-button {
-    width: 168px;
-    height: 64px;
-    border: none;
-    cursor: pointer;
-    /* Add more styles for the button */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.main__title {
+  width: 608px;
+  font-family: "Roboto Slab";
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 64px;
+  text-align: left;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.main__subtitle {
+  width: 608px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  margin-bottom: 88px;
+  color: white;
+}
+
+.main__search-bar {
+  width: 608px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  background-color: #ffffff;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.main__search-input {
+  width: 440px;
+  height: 64px;
+  padding-left: 12px;
+  background-color: transparent;
+  border: none;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: rgba(182, 188, 191, 1);
+  padding-left: 5px;
+}
+
+.main__search-button {
+  width: 168px;
+  height: 66px;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(47, 113, 229, 1);
+  padding: 0;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.main__search-button:hover {
+  cursor: pointer;
+}
