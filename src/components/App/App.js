@@ -5,7 +5,9 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
-import NewsPage from '../NewsPage/NewsPage'; // Import this component for displaying news
+import NewsPage from '../NewsPage/NewsPage';
+import '../../vendor/Style.css';
+
 // Import other necessary components
 
 function App() {

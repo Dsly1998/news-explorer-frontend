@@ -21,11 +21,9 @@
   
   .footer__button, .footer__icon-button {
     margin-left: 10px;
-    /* Additional styling for the buttons */
+
   }
-  
-  /* Style for your icon buttons */
-  .footer__icon-button {
-    /* Style your icon buttons here */
+    /* .footer__icon-button {
+
   }
-  
+   */
