@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css"; // Assuming you have a CSS file for styling
 
-function Header({ isLoggedIn, userName }) {
+function Header({ isLoggedIn, userName, onSignInClick }) {
   return (
     <header className="header">
       <button className="header__button header__button--news-explorer">
@@ -20,7 +20,7 @@ function Header({ isLoggedIn, userName }) {
         ) : (
           <>
             <button className="header__button header__button-home">Home</button>
-            <button className="header__button header__button-signin ">Sign in</button>
+            <button className="header__button header__button-signin" onClick={onSignInClick}>Sign in</button>
           </>
         )}
       </div>

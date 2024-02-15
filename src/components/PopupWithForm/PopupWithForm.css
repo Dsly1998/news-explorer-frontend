@@ -1,0 +1,119 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup__content {
+  width: 430px;
+  border-radius: 16px;
+  border: 1px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 1);
+  margin: auto;
+}
+
+.popup__wrapper {
+  position: relative;
+  bottom: 10px;
+  right: 0;
+}
+
+.popup__close {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  bottom: 50px;
+  left: 430px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-image: url("../../images/close.svg");
+}
+
+.popup__title {
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  height: 32px;
+  margin-left: 36px;
+  margin-top: 0;
+}
+
+.popup__form {
+  width: 358px;
+  height: 47px;
+  border: 1px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  color: rgba(47, 113, 229, 1);
+  margin-top: 32px;
+}
+
+.popup__input {
+  width: 358px;
+  border: 1px;
+  opacity: 0.2px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 12px;
+}
+
+.popup__buttons {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.popup__submit {
+  width: 360px;
+  height: 64px;
+  background: rgba(47, 113, 229, 1);
+  margin: auto;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  margin-top: 39px;
+  margin-bottom: 0;
+}
+
+.popup__switch {
+  width: 226px;
+  height: 20px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.popup__span {
+  color: rgba(47, 113, 229, 1);
+}
