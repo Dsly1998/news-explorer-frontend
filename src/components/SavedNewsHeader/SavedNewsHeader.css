@@ -1,0 +1,36 @@
+.saved-news-header {
+    text-align: left;
+    padding: 20px; /* Adjust padding as needed */
+  }
+  
+  .saved-news-title {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 712px;
+    height: 24px;
+  }
+  
+  .user-article-info {
+    font-family: Roboto Slab;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 46px;
+    width: 530px;
+    height: 92px;
+  }
+  
+  .keywords-info {
+    width: 712px;
+    height: 24px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  
+  .keywords-info span {
+    font-weight: 400;
+  }
+  

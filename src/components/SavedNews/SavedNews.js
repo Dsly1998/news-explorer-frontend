@@ -1,6 +1,7 @@
 import React from 'react';
-import SavedNewsHeader from './SavedNewsHeader';
-import NewsCardList from './NewsCardList';
+import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import NewsCardList from '../NewsCardList/NewsCardList';
+import Header from '../Header/Header';
 // Import other necessary components and styles
 
 function SavedNews() {

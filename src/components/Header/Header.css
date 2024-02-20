@@ -15,6 +15,34 @@
   border: none;
 }
 
+.header__button-name {
+  border: 1px solid rgba(255, 255, 255, 1);
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 112px;
+  height: 48px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__button-articles {
+  width: 128px;
+  height: 24px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: rgba(182, 188, 191, 1);
+}
+
 .header__button-home {
   width: 68px;
   height: 24px;
@@ -61,6 +89,15 @@
   text-align: center;
 }
 
+.header__login-right {
+  display: flex;
+  height: 80px;
+  width: 420px;
+  justify-content: space-between;
+  margin-right: 104px;
+  align-items: center;
+}
+
 .header__right-buttons {
   display: flex;
   height: 80px;
@@ -68,4 +105,9 @@
   justify-content: space-between;
   margin-right: 104px;
   align-items: center;
+}
+
+.header__logout-icon {
+  width: 24px;
+  height: 24px;
 }
