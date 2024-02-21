@@ -1,13 +1,20 @@
 import React from 'react';
+import './NewsCard.css'
 // Import styles
 
 function NewsCard({ article }) {
   return (
     <div className="news-card">
-      <img src={article.imageUrl} alt={article.title} />
-      <h3>{article.title}</h3>
-      <p>{article.description}</p>
-      {/* Include other article details as necessary */}
+      <div className="news-card__image-container">
+        <img src={article.urlToImage} alt={article.title} className="news-card__image"/>
+        <button className="news-card__button--save">Save</button>
+      </div>
+      <div className="news-card__content">
+        <span className="news-card__date">{new Date(article.publishedAt).toLocaleDateString()}</span>
+        <h3 className="news-card__title">{article.title}</h3>
+        <p className="news-card__description">{article.description}</p>
+        <span className="news-card__source">{article.source.name}</span>
+      </div>
     </div>
   );
 }

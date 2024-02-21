@@ -1,19 +1,23 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
-import logout from "../../images/logout.svg";
+import logoutIcon from "../../images/logout.svg";
 
-function Header({ isLoggedIn, userName, onSignInClick }) {
-  const navigate = useNavigate(); // Initialize the navigate function
+function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
+  const navigate = useNavigate();
 
-  // Function to handle navigation to the Home page
   const navigateHome = () => {
     navigate("/");
   };
 
-  // Function to handle navigation to the Saved Articles page
   const navigateSavedArticles = () => {
     navigate("/saved-news");
+  };
+
+  const handleLogout = () => {
+    // Call the logout function passed as a prop
+    onLogout();
+    navigate("/"); // Optionally navigate to a different page after logout
   };
 
   return (
@@ -26,47 +30,32 @@ function Header({ isLoggedIn, userName, onSignInClick }) {
       </button>
 
       {isLoggedIn ? (
-        <>
-          <div className="header__login-right">
-            <button
-              className="header__button header__button-home"
-              onClick={navigateHome}
-            >
-              Home
-            </button>
-            <button
-              className="header__button header__button-articles"
-              onClick={navigateSavedArticles}
-            >
-              Saved Articles
-            </button>
-            <button className="header__button header__button-name">
-              {userName}
-              <img
-                className="header__logout-icon"
-                src={logout}
-                alt="logout icon"
-              />
-            </button>
-          </div>
-        </>
+        <div className="header__login-right">
+          <button className="header__button header__button-home" onClick={navigateHome}>
+            Home
+          </button>
+          <button className="header__button header__button-articles" onClick={navigateSavedArticles}>
+            Saved Articles
+          </button>
+          <button className="header__button header__button-name">
+            {userName}
+            <img
+              className="header__logout-icon"
+              src={logoutIcon}
+              alt="logout icon"
+              onClick={handleLogout} // Add logout functionality to the logout icon
+            />
+          </button>
+        </div>
       ) : (
-        <>
-          <div className="header__right-buttons">
-            <button
-              className="header__button header__button-home"
-              onClick={navigateHome}
-            >
-              Home
-            </button>
-            <button
-              className="header__button header__button-signin"
-              onClick={onSignInClick}
-            >
-              Sign in
-            </button>
-          </div>
-        </>
+        <div className="header__right-buttons">
+          <button className="header__button header__button-home" onClick={navigateHome}>
+            Home
+          </button>
+          <button className="header__button header__button-signin" onClick={onSignInClick}>
+            Sign in
+          </button>
+        </div>
       )}
     </header>
   );

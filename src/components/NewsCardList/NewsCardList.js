@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NewsCard from '../NewsCard/NewsCard';
-// Import styles and any other necessary components
+import './NewsCardList.css'; // Import the CSS file for styling
 
 function NewsCardList({ articles }) {
-  // Check if articles is not undefined and has length
+  const [visibleArticles, setVisibleArticles] = useState(3);
+
   if (!articles || articles.length === 0) {
-    return <div>No articles found.</div>; // Or any other appropriate fallback UI
+    return <div className="news-card-list__no-results">No articles found.</div>;
   }
+
+  const loadMoreArticles = () => {
+    setVisibleArticles(prevVisible => prevVisible + 3);
+  };
 
   return (
     <div className="news-card-list">
-      {articles.map(article => <NewsCard key={article.id} article={article} />)}
-      {/* Render NewsCard components for each article */}
+      <h2 className="news-card-list__title">Search Results</h2>
+      <div className="news-card-list__grid">
+        {articles.slice(0, visibleArticles).map(article => (
+          <NewsCard key={article.url} article={article} />
+        ))}
+      </div>
+      {visibleArticles < articles.length && (
+        <button onClick={loadMoreArticles} className="news-card-list__load-more">Load More</button>
+      )}
     </div>
   );
 }
 
 export default NewsCardList;
+

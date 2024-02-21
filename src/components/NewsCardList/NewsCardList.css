@@ -1,0 +1,44 @@
+/* NewsCardList.css */
+
+.news-card-list {
+  height: 974px;
+  background-color: (245, 246, 247, 1);
+}
+
+.news-card-list__title {
+  font-family: Roboto Slab;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 712px;
+  height: 46px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.news-card-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+  gap: 20px;
+}
+
+.news-card-list__no-results {
+  text-align: center;
+  padding: 20px;
+}
+
+.news-card-list__load-more {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 288px;
+  height: 64px;
+  border-radius: 30px;
+  color: rgba(26, 27, 34, 1);
+  background: rgba(232, 232, 232, 1);
+  border: none;
+}
