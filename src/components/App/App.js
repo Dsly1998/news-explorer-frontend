@@ -9,11 +9,10 @@ import SavedNewsPage from "../SavedNewsPage/SavedNewsPage";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
-import { loginUser, registerUser } from "../../utils/ThirdPartyApi";
+import { loginUser, registerUser, fetchNews } from "../../utils/ThirdPartyApi";
 import "./App.css";
 import "../../vendor/Style.css";
-import { fetchNews } from "../../utils/ThirdPartyApi";
-import NewsCard from "../NewsCard/NewsCard";
+import NotFound from "../NotFound/NotFound";
 
 function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
@@ -25,6 +24,7 @@ function App() {
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
   const [articles, setArticles] = useState([]);
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   const handleSignUpClick = () => {
     setLoginOpen(false);
@@ -68,9 +68,14 @@ function App() {
   };
 
   const handleSearch = async (searchTerm) => {
-    // Fetch articles and update state
-    const fetchedArticles = await fetchNews(searchTerm);
-    setArticles(fetchedArticles);
+    setSearchPerformed(true); // Set searchPerformed to true when a search is performed
+    try {
+      const fetchedArticles = await fetchNews(searchTerm);
+      setArticles(fetchedArticles);
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+      // Optionally set error state here if needed
+    }
   };
 
   return (
@@ -87,7 +92,11 @@ function App() {
             <Route path="/" element={<Main onSearch={handleSearch} />} />
             {/* ... other routes ... */}
           </Routes>
-          {articles.length > 0 && <NewsCardList articles={articles} />}
+
+          {searchPerformed && (
+            articles.length > 0 ? <NewsCardList articles={articles} /> : <NotFound />
+          )}
+
           <About />
           <Footer />
         </div>
