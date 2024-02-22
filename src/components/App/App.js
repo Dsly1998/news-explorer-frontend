@@ -4,21 +4,27 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
-import PopupSignUp from "../PopupSignUp/PopupSignUp";
-import PopupLogin from "../PopupLogin/PopupLogin";
+import NewsCardList from "../NewsCardList/NewsCardList";
 import SavedNewsPage from "../SavedNewsPage/SavedNewsPage";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import PopupSignUp from "../PopupSignUp/PopupSignUp";
+import PopupLogin from "../PopupLogin/PopupLogin";
 import { loginUser, registerUser } from "../../utils/ThirdPartyApi";
 import "./App.css";
 import "../../vendor/Style.css";
+import { fetchNews } from "../../utils/ThirdPartyApi";
+import NewsCard from "../NewsCard/NewsCard";
 
 function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
   const [currentUser, setCurrentUser] = useState(null);
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
+  const [articles, setArticles] = useState([]);
 
   const handleSignUpClick = () => {
     setLoginOpen(false);
@@ -29,7 +35,6 @@ function App() {
     setSignUpOpen(false);
     setLoginOpen(true);
   };
-
 
   const handleLogin = async (email, password) => {
     try {
@@ -62,6 +67,12 @@ function App() {
     setCurrentUser(null);
   };
 
+  const handleSearch = async (searchTerm) => {
+    // Fetch articles and update state
+    const fetchedArticles = await fetchNews(searchTerm);
+    setArticles(fetchedArticles);
+  };
+
   return (
     <Router>
       <div className="App">
@@ -72,24 +83,14 @@ function App() {
             userName={currentUser ? currentUser.name : ""}
             onLogout={handleLogout}
           />
-
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route
-              path="/saved-news"
-              element={
-                <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <SavedNewsPage
-                    userName={currentUser ? currentUser.name : ""}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            {/* Other routes */}
+            <Route path="/" element={<Main onSearch={handleSearch} />} />
+            {/* ... other routes ... */}
           </Routes>
+          {articles.length > 0 && <NewsCardList articles={articles} />}
+          <About />
+          <Footer />
         </div>
-        <About />
-        <Footer />
       </div>
 
       <PopupLogin

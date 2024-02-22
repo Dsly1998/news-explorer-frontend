@@ -4,7 +4,7 @@ import authorImage from '../../images/Avatar.svg'; // Adjust the path as per you
 
 function About() {
   return (
-    <section className="about">
+    <div className="about">
       <img src={authorImage} alt="Author" className="about__image" />
       <div className="about__text">
         <h2 className="about__title">About the author</h2>
@@ -14,7 +14,7 @@ function About() {
           You can also talk about your experience with Practicum, what you learned there, and how you can help potential customers.
         </p>
       </div>
-    </section>
+    </div>
   );
 }
 

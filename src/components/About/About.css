@@ -3,13 +3,13 @@
   align-items: center;
   justify-content: center;
   height: 624px;
-  margin: auto;
+  margin-bottom: 80px ;
 }
 
 .about__image {
   width: 464px;
   height: 464px;
-  margin-left: 104px; 
+  margin-left: 104px;
   margin-right: 56px;
 }
 
