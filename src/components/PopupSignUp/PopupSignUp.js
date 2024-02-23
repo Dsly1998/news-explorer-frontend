@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import { registerUser } from '../../utils/ThirdPartyApi'; // Import the registerUser function
+import React, { useState } from "react";
+import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 const PopupSignUp = ({ isOpen, onClose, onSignInClick }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -14,18 +13,9 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-  
-    try {
-      const response = await registerUser(email, password, username);
-      console.log('Registration successful:', response); // Handle the response appropriately
-      onClose(); // Close the modal on successful registration, or navigate to confirmation
-    } catch (error) {
-      setError('Registration failed. Please try again.');
-      console.error('Registration error:', error);
-    }
+    setError("");
   };
-  
+
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
       <div className="popup__wrapper">
@@ -68,7 +58,11 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick }) => {
             Sign up
           </button>
           {error && <p className="popup__error">{error}</p>}
-          <button className="popup__switch" type="button" onClick={onSignInClick}>
+          <button
+            className="popup__switch"
+            type="button"
+            onClick={onSignInClick}
+          >
             or <span className="popup__span">Sign in</span>
           </button>
         </form>

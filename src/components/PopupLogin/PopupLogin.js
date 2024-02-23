@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import { loginUser } from '../../utils/ThirdPartyApi'; // Import the loginUser function
 
 const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
   const [email, setEmail] = useState('');
@@ -10,15 +9,6 @@ const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
-
-    try {
-      const response = await loginUser(email, password);
-      console.log('Login successful:', response); // Handle the response appropriately
-      onClose(); // Close the modal after successful login
-    } catch (error) {
-      setError('Login failed. Please check your credentials and try again.');
-      console.error('Login error:', error);
-    }
   };
 
   return (

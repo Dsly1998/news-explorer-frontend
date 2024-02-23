@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import Preloader from "../Preloader/Preloader";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
@@ -77,7 +76,6 @@ function App() {
           </Routes>
           <About />
           <Footer />
-          <Preloader />
         </div>
       </div>
 
