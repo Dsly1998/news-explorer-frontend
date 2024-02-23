@@ -3,16 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
-import fetchNews from "../../utils/NewsApi";
 import Footer from "../Footer/Footer";
-import NewsCardList from "../NewsCardList/NewsCardList";
-import SavedNewsPage from "../SavedNewsPage/SavedNewsPage";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import Preloader from "../Preloader/Preloader";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
 import "./App.css";
 import "../../vendor/Style.css";
-import NotFound from "../NotFound/NotFound";
 
 function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
@@ -20,13 +16,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser] = useState(null);
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
-  const [articles, setArticles] = useState([]);
-  const [searchPerformed, setSearchPerformed] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-
 
   const handleSignUpClick = () => {
     setLoginOpen(false);
@@ -69,17 +61,6 @@ function App() {
   //   setCurrentUser(null);
   // };
 
-  const handleSearch = async () => {
-    setSearchPerformed(true);
-    try {
-      const fetchedArticles = await fetchNews(searchTerm);
-      setArticles(fetchedArticles);
-    } catch (error) {
-      console.error("Error fetching articles:", error);
-      // Optionally set error state here if needed
-    }
-  };
-
   return (
     <Router>
       <div className="App">
@@ -91,16 +72,12 @@ function App() {
             // onLogout={handleLogout}
           />
           <Routes>
-          <Route path="/" element={<Main handleSearch={handleSearch} setSearchTerm={setSearchTerm} />} />
+            <Route path="/" element={<Main />} />
             {/* ... other routes ... */}
           </Routes>
-
-          {searchPerformed && (
-            articles.length > 0 ? <NewsCardList articles={articles} /> : <NotFound />
-          )}
-
           <About />
           <Footer />
+          <Preloader />
         </div>
       </div>
 

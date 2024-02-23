@@ -2,6 +2,7 @@
 .not-found {
   height: 374px;
   background: rgba(245, 246, 247, 1);
+  width: 100%;
 }
 
 /* Style for the inner container */
