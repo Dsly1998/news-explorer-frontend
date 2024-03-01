@@ -1,13 +1,14 @@
 import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
-const PopupConfirmation = ({ isOpen, onClose }) => {
+const PopupConfirmation = ({ isOpen, onClose, onSignInClick }) => {
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose} title="">
-      <p>Registration successfully completed!</p>
-      {/* <button onClick={}>Sign in</button> */}
+      <p className='confirm__text'>Registration successfully completed!</p>
+      <button className='confirm__button' onClick={onSignInClick}>Sign in</button>
     </PopupWithForm>
   );
 };
+
 
 export default PopupConfirmation;

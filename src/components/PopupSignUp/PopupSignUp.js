@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
-const PopupSignUp = ({ isOpen, onClose, onSignInClick }) => {
+const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -14,6 +14,15 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    if (!email || !password || !username) {
+      setError("All fields are required");
+      return;
+    }
+    localStorage.setItem("user", JSON.stringify({ email, password, username }));
+    localStorage.setItem("isLoggedIn", "false"); // Set initial login status to false
+    onClose();
+    onConfirmation();
   };
 
   return (

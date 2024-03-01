@@ -6,16 +6,20 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
+import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
 import "./App.css";
 import "../../vendor/Style.css";
 
 function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
+  const [isConfirmationOpen, setConfirmationOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
+    localStorage.getItem('isLoggedIn') === 'true'
   );
-  const [currentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem('currentUser'))
+  );
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
 
@@ -25,40 +29,21 @@ function App() {
   };
 
   const handleSignInClick = () => {
+    setConfirmationOpen(false);
     setSignUpOpen(false);
     setLoginOpen(true);
   };
+  
 
-  // const handleLogin = async (email, password) => {
-  //   try {
-  //     const response = await loginUser(email, password);
-  //     // Handle response, store token, set user info, etc.
-  //     setIsLoggedIn(true);
-  //     setCurrentUser(response.user); // Assuming the response contains user info
-  //     setLoginOpen(false); // Close the login modal
-  //   } catch (error) {
-  //     console.error("Login failed:", error);
-  //     // Handle login failure (show error message, etc.)
-  //   }
-  // };
+  const toggleConfirmation = () => setConfirmationOpen(!isConfirmationOpen);
 
-  // const handleSignUp = async (email, password, username) => {
-  //   try {
-  //     const response = await registerUser(email, password, username);
-  //     // Handle successful sign-up here
-  //     // You might want to log the user in directly or show a confirmation
-  //     setSignUpOpen(false); // Close the sign-up modal
-  //   } catch (error) {
-  //     console.error("Sign-up failed:", error);
-  //     // Handle sign-up failure
-  //   }
-  // };
-
-  // const handleLogout = () => {
-  //   // Clear user state, invalidate token, etc.
-  //   setIsLoggedIn(false);
-  //   setCurrentUser(null);
-  // };
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('currentUser');
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    // navigate to home or login page as needed
+  };  
 
   return (
     <Router>
@@ -68,7 +53,7 @@ function App() {
             onSignInClick={toggleLogin}
             isLoggedIn={isLoggedIn}
             userName={currentUser ? currentUser.name : ""}
-            // onLogout={handleLogout}
+            onLogout={handleLogout}
           />
           <Routes>
             <Route path="/" element={<Main />} />
@@ -88,7 +73,12 @@ function App() {
       <PopupSignUp
         isOpen={isSignUpOpen}
         onClose={toggleSignUp}
-        // onSignUp={handleSignUp}
+        onSignInClick={handleSignInClick}
+        onConfirmation={toggleConfirmation} // New prop
+      />
+      <PopupConfirmation
+        isOpen={isConfirmationOpen}
+        onClose={toggleConfirmation}
         onSignInClick={handleSignInClick}
       />
     </Router>

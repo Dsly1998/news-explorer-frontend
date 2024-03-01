@@ -9,7 +9,23 @@ const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
+    // Retrieve user data from localStorage
+    const storedUser = localStorage.getItem('user');
+    const userData = storedUser ? JSON.parse(storedUser) : null;
+    if (userData && userData.email === email && userData.password === password) {
+      // Credentials match, set login state
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('currentUser', JSON.stringify({ email, name: userData.username }));
+      console.log('isLoggedIn:', true); // Log the login state
+      console.log('currentUser:', { email, name: userData.username });
+      onClose(); // Close the login modal
+      window.location.reload(); // Refresh the page to update state
+    } else {
+      // Credentials do not match, set error
+      setError('Invalid email or password');
+    }
   };
+  
 
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
@@ -18,34 +34,30 @@ const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
         <form className="popup__form" onSubmit={handleSubmit}>
           <label>Email</label>
           <input
-            className="popup__input"
+            className="popup__input popup__input-email"
             type="email"
             placeholder="Enter email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </form>
-        <form className="popup__form">
           <label>Password</label>
           <input
-            className="popup__input"
+            className="popup__input popup__input-password"
             type="password"
             placeholder="Enter password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </form>
-        <form className="popup__buttons">
           <button className="popup__submit" type="submit">
             Sign in
           </button>
           {error && <p className="popup__error">{error}</p>}
-          <button className="popup__switch" type="button" onClick={onSignUpClick}>
-            or <span className="popup__span">Sign up</span>
-          </button>
         </form>
+        <button className="popup__switch" type="button" onClick={onSignUpClick}>
+          or <span className="popup__span">Sign up</span>
+        </button>
       </div>
     </PopupWithForm>
   );
