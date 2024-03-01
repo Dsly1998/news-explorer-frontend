@@ -15,8 +15,8 @@ function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
   };
 
   const handleLogout = () => {
-    onLogout(); // Call the logout function passed as a prop
-    navigate("/"); // Optionally navigate to a different page after logout
+    onLogout();
+    navigate("/"); 
   };
 
   return (

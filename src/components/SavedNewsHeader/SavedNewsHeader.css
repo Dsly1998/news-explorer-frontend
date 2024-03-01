@@ -1,36 +1,90 @@
-.saved-news-header {
-    text-align: left;
-    padding: 20px; /* Adjust padding as needed */
-  }
-  
-  .saved-news-title {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    width: 712px;
-    height: 24px;
-  }
-  
-  .user-article-info {
-    font-family: Roboto Slab;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 46px;
-    width: 530px;
-    height: 92px;
-  }
-  
-  .keywords-info {
-    width: 712px;
-    height: 24px;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-  }
-  
-  .keywords-info span {
-    font-weight: 400;
-  }
-  
+/* SavedNewsHeader.css */
+
+.saved-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  color: black;
+  height: 80px;
+  background: #c4c4c403;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.saved-header__button {
+  color: #1A1B22;
+  background: transparent;
+  border: none;
+}
+
+.saved-header__button--news-explorer {
+  font-family: Roboto Slab;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 200px;
+  height: 24px;
+  margin-left: 104px;
+}
+
+.saved-header__button-home{
+  width: 68px;
+  height: 24px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.saved-header__button-articles{
+  width: 128px;
+  height: 24px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  border-bottom: 3px solid #1A1B22;
+  padding-bottom: 50px;
+  margin-top: 27px;
+}
+
+.saved-header__button-name{
+  border: 1px solid #1A1B22;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 112px;
+  height: 48px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saved-header__logout-icon{
+  width: 24px;
+  height: 24px;
+}
+
+.saved-header__login-right{
+  display: flex;
+  height: 80px;
+  width: 420px;
+  justify-content: space-between;
+  margin-right: 104px;
+  align-items: center;
+}
+
+.saved-header__button:hover {
+  cursor: pointer;
+}

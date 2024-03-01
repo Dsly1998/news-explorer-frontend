@@ -7,19 +7,6 @@
   pointer-events: none;
 }
 
-.App__main-wrapper {
-  height: 576px;
-  background-image: url("../../images/main.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Rest of your styles */
-
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

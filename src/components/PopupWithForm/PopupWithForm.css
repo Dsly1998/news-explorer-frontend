@@ -73,6 +73,18 @@
   margin-top: 32px;
 }
 
+.popup__confirm-text {
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  width: 315px;
+  height: 56px;
+}
+
 .popup__input {
   width: 358px;
   border: 1px;
@@ -81,8 +93,8 @@
   margin-top: 12px;
 }
 
-.popup__input-email{
-margin-bottom: 31px;
+.popup__input-email {
+  margin-bottom: 31px;
 }
 
 .popup__buttons {
@@ -127,4 +139,20 @@ margin-bottom: 31px;
 
 .popup__span {
   color: rgba(47, 113, 229, 1);
+}
+
+.popup__confirm-button{
+  color: rgba(47, 113, 229, 1);
+  border: none;
+  background-color: transparent;
+  font-family: Inter;
+font-size: 18px;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+width: 315px;
+height: 18px;
+padding: 0;
+margin-bottom: 51px;
 }

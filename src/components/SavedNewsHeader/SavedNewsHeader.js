@@ -1,15 +1,59 @@
-import React from 'react';
-import './SavedNewsHeader.css'; // Make sure to create and link a corresponding CSS file
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import logoutBlack from "../../images/logoutblack.svg";
+import "./SavedNewsHeader.css";
 
-function SavedNewsHeader({ userName, articleCount, keywords }) {
+function SavedNewsHeader({ userName, onLogout }) {
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    navigate("/");
+  };
+
+  const navigateSavedArticles = () => {
+    navigate("/saved-news");
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    navigate("/");
+  };
+
   return (
-    <div className="saved-news-header" style={{ backgroundColor: 'rgba(209, 210, 214, 1)' }}>
-      <h2 className="saved-news-title">Saved articles</h2>
-      <h1 className="user-article-info">{userName}, you have {articleCount} saved articles</h1>
-      <p className="keywords-info">
-        By keywords: <span>{keywords.join(', ')}</span>
-      </p>
-    </div>
+    <header className="saved-header">
+      <button
+        className="saved-header__button saved-header__button--news-explorer"
+        onClick={navigateHome}
+      >
+        NewsExplorer
+      </button>
+
+      <div className="saved-header__login-right">
+        <button
+          className="saved-header__button saved-header__button-home"
+          onClick={navigateHome}
+        >
+          Home
+        </button>
+        <button
+          className="saved-header__button saved-header__button-articles"
+          onClick={navigateSavedArticles}
+        >
+          Saved Articles
+        </button>
+        <button
+          className="saved-header__button saved-header__button-name"
+          onClick={handleLogout}
+        >
+          {userName}
+          <img
+            className="saved-header__logout-icon"
+            src={logoutBlack}
+            alt="logout icon"
+          />
+        </button>
+      </div>
+    </header>
   );
 }
 
