@@ -16,8 +16,6 @@ const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
       // Credentials match, set login state
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('currentUser', JSON.stringify({ email, name: userData.username }));
-      console.log('isLoggedIn:', true); // Log the login state
-      console.log('currentUser:', { email, name: userData.username });
       onClose(); // Close the login modal
       window.location.reload(); // Refresh the page to update state
     } else {

@@ -36,7 +36,7 @@ function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
           <button className="header__button header__button-articles" onClick={navigateSavedArticles}>
             Saved Articles
           </button>
-          <button className="header__button header__button-name">
+          <button className="header__button header__button-name" onClick={onLogout}>
             {userName}
             <img
               className="header__logout-icon"
