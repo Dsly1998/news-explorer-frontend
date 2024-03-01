@@ -11,7 +11,7 @@ function Main({
   toggleLogin,
   isLoggedIn,
   currentUser,
-  handleLogout,
+  handleLogout
 }) {
   return (
     <main className="main">

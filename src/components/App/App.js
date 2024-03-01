@@ -1,9 +1,6 @@
-// App.js
-
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
 import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
@@ -38,22 +35,33 @@ function App() {
     setLoginOpen(true);
   };
 
+  // Simplified logout logic using local storage
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("currentUser");
     setIsLoggedIn(false);
-    setCurrentUser(null);
   };
+
+  function RedirectToHomeOnLogout() {
+    const navigate = useNavigate();
+    useEffect(() => {
+      if (!isLoggedIn) {
+        navigate("/");
+      }
+    }, [isLoggedIn, navigate]);
+
+    return null; // This component does not render anything
+  }
 
   return (
     <Router>
+      <RedirectToHomeOnLogout />
       <div className="App">
         <Routes>
           <Route
             path="/"
             element={
               <Main
-                isLoginOpen={isLoginOpen}
                 toggleLogin={toggleLogin}
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
@@ -66,8 +74,8 @@ function App() {
             element={
               <SavedNewsPage
                 currentUser={currentUser}
-                handleLogout={handleLogout}
                 savedArticles={savedArticles}
+                handleLogout={handleLogout}
               />
             }
           />

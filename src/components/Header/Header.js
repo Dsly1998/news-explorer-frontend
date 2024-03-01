@@ -1,23 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import useNavigation from "../Navigation/Navigation"; // Adjust the path as necessary
 import "./Header.css";
 import logoutIcon from "../../images/logout.svg";
 
 function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
-  const navigate = useNavigate();
-
-  const navigateHome = () => {
-    navigate("/");
-  };
-
-  const navigateSavedArticles = () => {
-    navigate("/saved-news");
-  };
-
-  const handleLogout = () => {
-    onLogout();
-    navigate("/"); 
-  };
+  const { navigateHome, navigateSavedArticles } = useNavigation();
 
   return (
     <header className="header">
@@ -30,28 +17,42 @@ function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
 
       {isLoggedIn ? (
         <div className="header__login-right">
-          <button className="header__button header__button-home" onClick={navigateHome}>
+          <button
+            className="header__button header__button-home"
+            onClick={navigateHome}
+          >
             Home
           </button>
-          <button className="header__button header__button-articles" onClick={navigateSavedArticles}>
+          <button
+            className="header__button header__button-articles"
+            onClick={navigateSavedArticles}
+          >
             Saved Articles
           </button>
-          <button className="header__button header__button-name" onClick={onLogout}>
+          <button
+            className="header__button header__button-name"
+            onClick={onLogout}
+          >
             {userName}
             <img
               className="header__logout-icon"
               src={logoutIcon}
               alt="logout icon"
-              onClick={handleLogout} // Add logout functionality to the logout icon
             />
           </button>
         </div>
       ) : (
         <div className="header__right-buttons">
-          <button className="header__button header__button-home" onClick={navigateHome}>
+          <button
+            className="header__button header__button-home"
+            onClick={navigateHome}
+          >
             Home
           </button>
-          <button className="header__button header__button-signin" onClick={onSignInClick}>
+          <button
+            className="header__button header__button-signin"
+            onClick={onSignInClick}
+          >
             Sign in
           </button>
         </div>

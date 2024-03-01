@@ -1,23 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import useNavigation from "../Navigation/Navigation"; // Adjust the path as necessary
 import logoutBlack from "../../images/logoutblack.svg";
 import "./SavedNewsHeader.css";
 
 function SavedNewsHeader({ userName, onLogout }) {
-  const navigate = useNavigate();
-
-  const navigateHome = () => {
-    navigate("/");
-  };
-
-  const navigateSavedArticles = () => {
-    navigate("/saved-news");
-  };
-
-  const handleLogout = () => {
-    onLogout();
-    navigate("/");
-  };
+  const { navigateHome, navigateSavedArticles } = useNavigation();
 
   return (
     <header className="saved-header">
@@ -43,7 +30,7 @@ function SavedNewsHeader({ userName, onLogout }) {
         </button>
         <button
           className="saved-header__button saved-header__button-name"
-          onClick={handleLogout}
+          onClick={onLogout}
         >
           {userName}
           <img
