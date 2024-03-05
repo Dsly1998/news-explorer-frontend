@@ -19,13 +19,13 @@ export const saveArticle = (newArticle) => {
 };
 
 export const deleteArticle = (articleToDelete) => {
-    const savedArticles = getSavedArticles();
-    const filteredArticles = savedArticles.filter(
-      (article) => article.title !== articleToDelete.title
-    );
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filteredArticles));
-  };
-  
+  const savedArticles = getSavedArticles();
+  const filteredArticles = savedArticles.filter(
+    (article) => article.title !== articleToDelete.title
+  );
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filteredArticles));
+  window.location.reload();
+};
 
 export const isArticleSaved = (article) => {
   const savedArticles = getSavedArticles();

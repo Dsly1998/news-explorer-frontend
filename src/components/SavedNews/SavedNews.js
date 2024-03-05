@@ -17,9 +17,7 @@ function SavedNews({ currentUser, handleLogout }) {
   }, []);
 
   const handleUnsaveArticle = (articleToDelete) => {
-    deleteArticle(articleToDelete); // Delete the article from local storage
-
-    // Directly update the state
+    deleteArticle(articleToDelete);
     setSavedArticles((currentArticles) =>
       currentArticles.filter((article) => article.id !== articleToDelete.id)
     );
