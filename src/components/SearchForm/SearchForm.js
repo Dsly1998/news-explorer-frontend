@@ -3,7 +3,7 @@ import "./SearchForm.css";
 import fetchNews from "../../utils/NewsApi";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
-import Preloader from '../Preloader/Preloader'; // Adjust the path as per your folder structure
+import Preloader from "../Preloader/Preloader"; // Adjust the path as per your folder structure
 
 function SearchForm() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,6 +13,12 @@ function SearchForm() {
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   const handleSearch = async () => {
@@ -36,13 +42,21 @@ function SearchForm() {
           className="Search-Form__search-input"
           placeholder="Enter topic"
           onChange={handleInputChange}
+          onKeyDown={handleKeyPress}
         />
-        <button className="Search-Form__search-button" onClick={handleSearch}>Search</button>
+        <button className="Search-Form__search-button" onClick={handleSearch}>
+          Search
+        </button>
       </div>
       {isLoading ? (
         <Preloader />
-      ) : searchPerformed && (
-        articles.length > 0 ? <NewsCardList articles={articles} /> : <NotFound />
+      ) : (
+        searchPerformed &&
+        (articles.length > 0 ? (
+          <NewsCardList articles={articles} />
+        ) : (
+          <NotFound />
+        ))
       )}
     </div>
   );

@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
-import "./NewsCardList.css"; // Import the CSS file for styling
+import { saveArticle, isArticleSaved } from "../../utils/LocalStorage"; // Import saveArticle function
+import "./NewsCardList.css";
 
 function NewsCardList({ articles }) {
   const [visibleArticles, setVisibleArticles] = useState(3);
+
+  // Handle saving an article
+  const onSave = (article) => {
+    if (!isArticleSaved(article)) {
+      saveArticle(article);
+    }
+  };
 
   const loadMoreArticles = () => {
     setVisibleArticles((prevVisible) => prevVisible + 3);
@@ -14,7 +22,7 @@ function NewsCardList({ articles }) {
       <h2 className="news-card-list__title">Search Results</h2>
       <div className="news-card-list__grid">
         {articles.slice(0, visibleArticles).map((article) => (
-          <NewsCard key={article.url} article={article} />
+          <NewsCard key={article.url} article={article} onSave={onSave} />
         ))}
       </div>
       {visibleArticles < articles.length && (

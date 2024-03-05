@@ -4,7 +4,7 @@ import Main from "../Main/Main";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
 import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
-import SavedNewsPage from "../SavedNewsPage/SavedNewsPage";
+import SavedNews from "../SavedNews/SavedNews";
 import "./App.css";
 import "../../vendor/Style.css";
 
@@ -72,7 +72,7 @@ function App() {
           <Route
             path="/saved-news"
             element={
-              <SavedNewsPage
+              <SavedNews
                 currentUser={currentUser}
                 savedArticles={savedArticles}
                 handleLogout={handleLogout}
