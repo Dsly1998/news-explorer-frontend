@@ -37,3 +37,41 @@
   margin-bottom: 88px;
   color: white;
 }
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .main {
+      /* Tablet-specific styles for .main */
+  }
+
+  .main__title {
+      /* Tablet-specific styles for .main__title */
+  }
+
+  .main-wrapper {
+      /* Tablet-specific styles for .main-wrapper */
+  }
+
+  .main__subtitle {
+      /* Tablet-specific styles for .main__subtitle */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .main {
+      /* Mobile-specific styles for .main */
+  }
+
+  .main__title {
+      /* Mobile-specific styles for .main__title */
+  }
+
+  .main-wrapper {
+      /* Mobile-specific styles for .main-wrapper */
+  }
+
+  .main__subtitle {
+      /* Mobile-specific styles for .main__subtitle */
+  }
+}

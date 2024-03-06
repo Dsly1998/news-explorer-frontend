@@ -15,10 +15,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
-  const [currentUser, setCurrentUser] = useState(
+  const [currentUser] = useState(
     JSON.parse(localStorage.getItem("currentUser"))
   );
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticles] = useState([]);
 
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
@@ -48,7 +48,7 @@ function App() {
       if (!isLoggedIn) {
         navigate("/");
       }
-    }, [isLoggedIn, navigate]);
+    }, [navigate]);
 
     return null; // This component does not render anything
   }

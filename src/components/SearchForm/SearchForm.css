@@ -59,3 +59,39 @@
 .Search-Form__search-button:hover {
   cursor: pointer;
 }
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .Search-Form__search-bar {
+    width: 80%; /* Example: adjust width */
+    /* Other tablet-specific styles */
+  }
+
+  .Search-Form__search-input {
+    width: 70%; /* Example: adjust width */
+    /* Other tablet-specific styles */
+  }
+
+  .Search-Form__search-button {
+    width: 30%; /* Example: adjust width */
+    /* Other tablet-specific styles */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .Search-Form__search-bar {
+    width: 90%; /* Example: adjust width */
+    flex-direction: column; /* Example: stack elements */
+    height: auto; /* Adjust height */
+  }
+
+  .Search-Form__search-input {
+    width: 100%; /* Full width */
+    margin-bottom: 10px; /* Add margin */
+  }
+
+  .Search-Form__search-button {
+    width: 100%; /* Full width */
+  }
+}

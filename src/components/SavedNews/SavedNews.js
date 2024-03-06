@@ -6,14 +6,18 @@ import NewsCard from "../NewsCard/NewsCard";
 import { getSavedArticles, deleteArticle } from "../../utils/LocalStorage";
 import Footer from "../Footer/Footer";
 import SavedNewsInfo from "../SavedNewsInfo/SavedNewsInfo";
+import NotFound from "../NotFound/NotFound"; // Import NotFound
+import Preloader from "../Preloader/Preloader"; // Import Preloader
 import "./SavedNews.css";
 
 function SavedNews({ currentUser, handleLogout }) {
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const articles = getSavedArticles();
     setSavedArticles(articles);
+    setIsLoading(false); // Set loading to false once articles are fetched
   }, []);
 
   const handleUnsaveArticle = (articleToDelete) => {
@@ -44,18 +48,25 @@ function SavedNews({ currentUser, handleLogout }) {
         savedArticles={savedArticles}
         keywords={keywords}
       />
-      <div className="saved-news__cards">
-        <div className="saved-news__container">
-          {savedArticles.map((article) => (
-            <NewsCard
-              key={article.title}
-              article={article}
-              onSave={handleUnsaveArticle}
-              isInSavedNewsRoute={true}
-            />
-          ))}
+      {isLoading ? (
+        <Preloader />
+      ) : savedArticles.length > 0 ? (
+        <div className="saved-news__cards">
+          <div className="saved-news__container">
+            {savedArticles.map((article) => (
+              <NewsCard
+                key={article.title}
+                article={article}
+                onSave={handleUnsaveArticle}
+                isInSavedNewsRoute={true}
+                keywords={keywords}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <NotFound /> // Show NotFound if there are no saved articles
+      )}
       <Footer />
     </div>
   );

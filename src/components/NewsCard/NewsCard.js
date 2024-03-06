@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./NewsCard.css";
 import bookmark from "../../images/bookmark.svg";
 import bookmarkFilled from "../../images/bookmark-filled.svg";
-import trash from "../../images/trash.svg"; // Path to your trash icon
+import bookmarkBlack from "../../images/bookmark-black.svg"; // Path to your black bookmark icon
+import trash from "../../images/trash.svg";
+import trashDark from "../../images/trash-dark.svg"; // Path to your dark trash icon
 import {
   isArticleSaved,
   saveArticle,
@@ -14,30 +16,42 @@ function NewsCard({
   isInSavedNewsRoute,
   onArticleSave,
   onArticleDelete,
+  isLoggedIn,
 }) {
-  // Local state to manage the saved status of the article
   const [isSaved, setIsSaved] = useState(isArticleSaved(article));
+  const [hovered, setHovered] = useState(false);
 
-  // Determine which icon to use based on the route and save status
-  const icon = isInSavedNewsRoute ? trash : isSaved ? bookmarkFilled : bookmark;
-
-  // Handle the click on the save/delete button
-  const handleSaveClick = () => {
-    if (isInSavedNewsRoute || isSaved) {
-      deleteArticle(article); // Delete the article from saved articles
-      setIsSaved(false); // Update the local state
-      onArticleDelete && onArticleDelete(article);
-    } else {
-      saveArticle(article); // Save the article
-      setIsSaved(true); // Update the local state
-      onArticleSave && onArticleSave(article);
-    }
-  };
-
-  // Update the local state if the saved status of the article changes externally
   useEffect(() => {
     setIsSaved(isArticleSaved(article));
   }, [article]);
+
+  const handleSaveClick = () => {
+    if (!isLoggedIn && !isInSavedNewsRoute) return;
+    if (isInSavedNewsRoute) {
+      deleteArticle(article);
+      onArticleDelete && onArticleDelete(article);
+    } else {
+      if (!isSaved) {
+        saveArticle(article);
+        setIsSaved(true);
+        onArticleSave && onArticleSave(article);
+      }
+    }
+  };
+
+  const icon = isInSavedNewsRoute
+    ? hovered
+      ? trashDark
+      : trash
+    : isSaved
+    ? bookmarkFilled
+    : hovered
+    ? bookmarkBlack
+    : bookmark;
+
+  const buttonClass = isInSavedNewsRoute
+    ? "news-card__button--delete"
+    : "news-card__button--save";
 
   return (
     <div className="news-card">
@@ -47,13 +61,37 @@ function NewsCard({
           alt={article.title}
           className="news-card__image"
         />
-        <button className="news-card__button--save" onClick={handleSaveClick}>
-          <img
-            src={icon}
-            alt={isInSavedNewsRoute ? "Delete article" : "Save article"}
-            className="news-card__bookmark"
-          />
-        </button>
+        <div className="news-card__container">
+          {isInSavedNewsRoute && article.searchKeyword && (
+            <div className="news-card__keyword-container">
+              <div className="news-card__keyword-bubble">
+                {article.searchKeyword}
+              </div>
+            </div>
+          )}
+          {hovered && !isLoggedIn && !isInSavedNewsRoute && (
+            <div className="news-card__hover-container-login">
+              <p className="news-card__hover-text">Sign in to save articles</p>
+            </div>
+          )}
+          {hovered && isInSavedNewsRoute && (
+            <div className="news-card__hover-container">
+              <p className="news-card__hover-text">Remove from saved</p>
+            </div>
+          )}
+          <button
+            className={buttonClass}
+            onClick={handleSaveClick}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <img
+              src={icon}
+              alt={isInSavedNewsRoute ? "Delete article" : "Save article"}
+              className="news-card__icon"
+            />
+          </button>
+        </div>
       </div>
       <div className="news-card__content">
         <span className="news-card__date">

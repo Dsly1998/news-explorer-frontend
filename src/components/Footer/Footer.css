@@ -4,7 +4,7 @@
   align-items: center;
   padding-bottom: 26px;
   background: #ffffff;
-  height: 80px;
+  height: 50px;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -37,6 +37,8 @@
   border: none;
   padding-right: 40px;
   padding-left: 0;
+  color: rgba(26, 27, 34, 1);
+  text-decoration: none;
 }
 
 .footer__button:hover {
@@ -54,4 +56,50 @@
 
 .footer__icon-button:hover {
   cursor: pointer;
+}
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .footer {
+    /* Tablet-specific styles for .footer */
+  }
+
+  .footer__text {
+    /* Tablet-specific styles for .footer__text */
+  }
+
+  .footer__buttons-right {
+    /* Tablet-specific styles for .footer__buttons-right */
+  }
+
+  .footer__button {
+    /* Tablet-specific styles for .footer__button */
+  }
+
+  .footer__icon-button {
+    /* Tablet-specific styles for .footer__icon-button */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .footer {
+    /* Mobile-specific styles for .footer */
+  }
+
+  .footer__text {
+    /* Mobile-specific styles for .footer__text */
+  }
+
+  .footer__buttons-right {
+    /* Mobile-specific styles for .footer__buttons-right */
+  }
+
+  .footer__button {
+    /* Mobile-specific styles for .footer__button */
+  }
+
+  .footer__icon-button {
+    /* Mobile-specific styles for .footer__icon-button */
+  }
 }

@@ -93,14 +93,14 @@
   margin-top: 12px;
 }
 
-.popup__input-email {
-  margin-bottom: 31px;
-}
-
 .popup__buttons {
   display: flex;
   flex-direction: column;
   height: fit-content;
+}
+
+.popup__label-password {
+  margin-top: 30px;
 }
 
 .popup__submit {
@@ -115,6 +115,24 @@
   letter-spacing: 0px;
   text-align: center;
   color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  margin-top: 39px;
+  margin-bottom: 0;
+}
+
+.popup__submit-disabled {
+  width: 360px;
+  height: 64px;
+  background: rgba(230, 232, 235, 1);
+  margin: auto;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: rgba(182, 188, 191, 1);
   border: none;
   border-radius: 30px;
   margin-top: 39px;
@@ -141,18 +159,108 @@
   color: rgba(47, 113, 229, 1);
 }
 
-.popup__confirm-button{
+.popup__confirm-button {
   color: rgba(47, 113, 229, 1);
   border: none;
   background-color: transparent;
   font-family: Inter;
-font-size: 18px;
-font-weight: 400;
-line-height: 22px;
-letter-spacing: 0em;
-text-align: left;
-width: 315px;
-height: 18px;
-padding: 0;
-margin-bottom: 51px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 315px;
+  height: 18px;
+  padding: 0;
+  margin-bottom: 51px;
+}
+
+.popup__error {
+  width: 200px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ff0000;
+  margin: auto;
+}
+
+.popup__error-login {
+  width: 200px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #ff0000;
+  margin: 0 0 0 0;
+}
+
+.popup__label-password {
+  margin-top: 31px;
+}
+
+.popup__label-username {
+  margin-top: 30px;
+}
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .popup__content {
+      /* Tablet-specific styles for .popup__content */
+      width: auto; /* Example: adjust width */
+      margin: 20px; /* Example: add margin */
+  }
+
+  /* Add tablet-specific styles for other .popup classes here */
+  .popup__wrapper,
+  .popup__close,
+  .popup__title,
+  .popup__form,
+  .popup__confirm-text,
+  .popup__input,
+  .popup__buttons,
+  .popup__submit,
+  .popup__submit-disabled,
+  .popup__switch,
+  .popup__span,
+  .popup__confirm-button,
+  .popup__error,
+  .popup__error-login,
+  .popup__label-password,
+  .popup__label-username {
+      /* Tablet-specific styles */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .popup__content {
+      /* Mobile-specific styles for .popup__content */
+      width: 90%; /* Example: adjust width */
+      margin: 10px; /* Example: adjust margin */
+  }
+
+  /* Add mobile-specific styles for other .popup classes here */
+  .popup__wrapper,
+  .popup__close,
+  .popup__title,
+  .popup__form,
+  .popup__confirm-text,
+  .popup__input,
+  .popup__buttons,
+  .popup__submit,
+  .popup__submit-disabled,
+  .popup__switch,
+  .popup__span,
+  .popup__confirm-button,
+  .popup__error,
+  .popup__error-login,
+  .popup__label-password,
+  .popup__label-username {
+      /* Mobile-specific styles */
+  }
 }

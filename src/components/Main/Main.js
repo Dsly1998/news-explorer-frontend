@@ -27,7 +27,7 @@ function Main({
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <SearchForm />
+        <SearchForm isLoggedIn={isLoggedIn}/>
         <About />
         <Footer />
       </div>

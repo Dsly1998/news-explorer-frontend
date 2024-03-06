@@ -112,3 +112,43 @@
   width: 24px;
   height: 24px;
 }
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .header {
+      /* Tablet-specific styles for .header */
+  }
+
+  /* Add tablet-specific styles for other .header classes here */
+  .header__button,
+  .header__button-name,
+  .header__button-articles,
+  .header__button-home,
+  .header__button--news-explorer,
+  .header__button-signin,
+  .header__login-right,
+  .header__right-buttons,
+  .header__logout-icon {
+      /* Tablet-specific styles */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .header {
+      /* Mobile-specific styles for .header */
+  }
+
+  /* Add mobile-specific styles for other .header classes here */
+  .header__button,
+  .header__button-name,
+  .header__button-articles,
+  .header__button-home,
+  .header__button--news-explorer,
+  .header__button-signin,
+  .header__login-right,
+  .header__right-buttons,
+  .header__logout-icon {
+      /* Mobile-specific styles */
+  }
+}

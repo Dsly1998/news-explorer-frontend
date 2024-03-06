@@ -88,3 +88,37 @@
 .saved-header__button:hover {
   cursor: pointer;
 }
+
+/* Tablet (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+  .saved-header {
+      /* Tablet-specific styles for .saved-header */
+  }
+
+  .saved-header__button,
+  .saved-header__button--news-explorer,
+  .saved-header__button-home,
+  .saved-header__button-articles,
+  .saved-header__button-name,
+  .saved-header__logout-icon,
+  .saved-header__login-right {
+      /* Tablet-specific styles for each class */
+  }
+}
+
+/* Mobile Phones (screens less than or equal to 320px) */
+@media screen and (max-width: 320px) {
+  .saved-header {
+      /* Mobile-specific styles for .saved-header */
+  }
+
+  .saved-header__button,
+  .saved-header__button--news-explorer,
+  .saved-header__button-home,
+  .saved-header__button-articles,
+  .saved-header__button-name,
+  .saved-header__logout-icon,
+  .saved-header__login-right {
+      /* Mobile-specific styles for each class */
+  }
+}
