@@ -4,7 +4,7 @@
   justify-content: center;
   height: 624px;
   margin-bottom: 80px;
-  width:100%;
+  width: 100%;
 }
 
 .about__image {
@@ -13,6 +13,9 @@
   margin-left: 104px;
   margin-right: 56px;
   margin-top: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: seashell;
 }
 
 .about__text {
@@ -44,47 +47,54 @@
 }
 
 /* Tablet (screens less than or equal to 768px) */
-@media screen and (max-width: 768px) {
-  .about {
-      /* Tablet-specific styles for .about */
-  }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+.about{
+  margin-bottom: 61px;
+}
 
   .about__image {
-      /* Tablet-specific styles for .about__image */
+    width: 232px;
+    height: 232px;
+    border-radius: 1000px;
+    margin-top: 61px;
+    margin-left: 40px;
   }
 
   .about__text {
-      /* Tablet-specific styles for .about__text */
+    width: 424px;
+    margin-right: 40px;
   }
 
   .about__title {
-      /* Tablet-specific styles for .about__title */
+    width: 424px;
+    height: 34px;
+    margin-top: 40px;
   }
 
   .about__description {
-      /* Tablet-specific styles for .about__description */
+    width: 424px;
   }
 }
 
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (max-width: 320px) {
   .about {
-      /* Mobile-specific styles for .about */
+    /* Mobile-specific styles for .about */
   }
 
   .about__image {
-      /* Mobile-specific styles for .about__image */
+    /* Mobile-specific styles for .about__image */
   }
 
   .about__text {
-      /* Mobile-specific styles for .about__text */
+    /* Mobile-specific styles for .about__text */
   }
 
   .about__title {
-      /* Mobile-specific styles for .about__title */
+    /* Mobile-specific styles for .about__title */
   }
 
   .about__description {
-      /* Mobile-specific styles for .about__description */
+    /* Mobile-specific styles for .about__description */
   }
 }

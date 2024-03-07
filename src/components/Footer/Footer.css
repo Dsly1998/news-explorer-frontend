@@ -58,26 +58,16 @@
   cursor: pointer;
 }
 
-/* Tablet (screens less than or equal to 768px) */
-@media screen and (max-width: 768px) {
-  .footer {
-    /* Tablet-specific styles for .footer */
-  }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
 
   .footer__text {
-    /* Tablet-specific styles for .footer__text */
+   width: 300px;
+   margin-left: 40px;
   }
 
   .footer__buttons-right {
-    /* Tablet-specific styles for .footer__buttons-right */
-  }
-
-  .footer__button {
-    /* Tablet-specific styles for .footer__button */
-  }
-
-  .footer__icon-button {
-    /* Tablet-specific styles for .footer__icon-button */
+    width: 320px;
+    margin-right: 40px;
   }
 }
 

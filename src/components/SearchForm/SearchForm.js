@@ -5,7 +5,7 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader"; // Adjust the path as per your folder structure
 
-function SearchForm({isLoggedIn}) {
+function SearchForm({ isLoggedIn }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [articles, setArticles] = useState([]);
@@ -53,7 +53,7 @@ function SearchForm({isLoggedIn}) {
       ) : (
         searchPerformed &&
         (articles.length > 0 ? (
-          <NewsCardList articles={articles} isLoggedIn={isLoggedIn}/>
+          <NewsCardList articles={articles} isLoggedIn={isLoggedIn} />
         ) : (
           <NotFound />
         ))

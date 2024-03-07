@@ -16,7 +16,7 @@ function SavedNewsInfo({ username, savedArticles, keywords }) {
       </div>
       <div className="by-keywords">
         By keywords:
-        <span className="keywords">"{firstTwoKeywords}"</span>
+        <span className="keywords">{firstTwoKeywords}</span>
         {otherKeywordCount > 0 && (
           <span className="other-keywords">
             , and {otherKeywordCount} other

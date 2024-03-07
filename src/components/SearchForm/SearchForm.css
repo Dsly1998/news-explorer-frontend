@@ -31,6 +31,9 @@
   letter-spacing: 0px;
   text-align: left;
   box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  padding-left: 24px;
 }
 
 ::placeholder {
@@ -61,37 +64,31 @@
 }
 
 /* Tablet (screens less than or equal to 768px) */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .Search-Form__search-bar {
-    width: 80%; /* Example: adjust width */
-    /* Other tablet-specific styles */
+    width: 452px;
+    height: 56px;
+    margin-bottom: 48px;
   }
 
   .Search-Form__search-input {
-    width: 70%; /* Example: adjust width */
-    /* Other tablet-specific styles */
+    width: 228px;
+    height: 22px;
   }
 
   .Search-Form__search-button {
-    width: 30%; /* Example: adjust width */
-    /* Other tablet-specific styles */
+    width: 160px;
+    height: 56px;
   }
 }
 
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (max-width: 320px) {
   .Search-Form__search-bar {
-    width: 90%; /* Example: adjust width */
-    flex-direction: column; /* Example: stack elements */
-    height: auto; /* Adjust height */
-  }
+    .Search-Form__search-input {
+    }
 
-  .Search-Form__search-input {
-    width: 100%; /* Full width */
-    margin-bottom: 10px; /* Add margin */
-  }
-
-  .Search-Form__search-button {
-    width: 100%; /* Full width */
+    .Search-Form__search-button {
+    }
   }
 }

@@ -49,30 +49,60 @@
 }
 
 /* Tablet (screens less than or equal to 768px) */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .saved-news-info {
-      /* Tablet-specific styles for .saved-news-info */
-      margin-left: 20px; /* Example: adjust margins */
-      margin-right: 20px; /* Example: adjust margins */
+    margin-left: 40px;
   }
 
-  .saved-articles-title,
-  .user-saved-articles,
-  .by-keywords,
-  .keywords,
-  .other-keywords {
-      /* Tablet-specific styles for each class */
-      width: auto; /* Example: adjust width */
-      /* Other tablet-specific styles */
+  .saved-articles-title {
+    width: 712px;
+    height: 24px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 24px;
+  }
+  .user-saved-articles {
+    width: 336px;
+    height: 68px;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 16px;
+  }
+  .by-keywords {
+    width: 712px;
+    height: 24px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 16px;
+  }
+  .keywords {
+    font-family: Roboto;
+    font-weight: 700;
+    size: 18px;
+    line-height: 24px;
+    margin-bottom: 32px;
+    padding-left: 4px;
   }
 }
 
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (max-width: 320px) {
   .saved-news-info {
-      /* Mobile-specific styles for .saved-news-info */
-      margin-left: 10px; /* Example: adjust margins */
-      margin-right: 10px; /* Example: adjust margins */
+    /* Mobile-specific styles for .saved-news-info */
+    margin-left: 10px; /* Example: adjust margins */
+    margin-right: 10px; /* Example: adjust margins */
   }
 
   .saved-articles-title,
@@ -80,8 +110,8 @@
   .by-keywords,
   .keywords,
   .other-keywords {
-      /* Mobile-specific styles for each class */
-      font-size: smaller; /* Example: adjust font size */
-      /* Other mobile-specific styles */
+    /* Mobile-specific styles for each class */
+    font-size: smaller; /* Example: adjust font size */
+    /* Other mobile-specific styles */
   }
 }
