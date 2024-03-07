@@ -77,7 +77,7 @@
 }
 
 /* Mobile Phones (screens less than or equal to 320px) */
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .about {
     /* Mobile-specific styles for .about */
   }
