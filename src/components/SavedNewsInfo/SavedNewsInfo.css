@@ -100,18 +100,59 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .saved-news-info {
-    /* Mobile-specific styles for .saved-news-info */
-    margin-left: 10px; /* Example: adjust margins */
-    margin-right: 10px; /* Example: adjust margins */
+    width: 320px;
+    margin-left: 16px;
   }
 
-  .saved-articles-title,
-  .user-saved-articles,
-  .by-keywords,
-  .keywords,
+  .saved-articles-title {
+    width: 288px;
+    height: 24px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  .user-saved-articles {
+    width: 288px;
+    height: 68px;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 16px;
+  }
+  .by-keywords {
+    width: 288px;
+    height: 48px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-bottom: 32px;
+    margin-top: 50px;
+  }
+  .keywords {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
   .other-keywords {
-    /* Mobile-specific styles for each class */
-    font-size: smaller; /* Example: adjust font size */
-    /* Other mobile-specific styles */
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
   }
 }

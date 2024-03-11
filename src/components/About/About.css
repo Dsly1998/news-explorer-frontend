@@ -48,9 +48,9 @@
 
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-.about{
-  margin-bottom: 61px;
-}
+  .about {
+    margin-bottom: 61px;
+  }
 
   .about__image {
     width: 232px;
@@ -79,22 +79,52 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .about {
-    /* Mobile-specific styles for .about */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 900px;
+    margin-bottom: 0;
   }
 
   .about__image {
-    /* Mobile-specific styles for .about__image */
+    width: 272px;
+    height: 272px;
+    margin: 0;
+    margin-top: 32px;
   }
 
   .about__text {
-    /* Mobile-specific styles for .about__text */
+   margin: auto;
+   width: 320px;
+   height: inherit;
+   padding-bottom: 0;
+   margin-top: 16px;
   }
 
   .about__title {
-    /* Mobile-specific styles for .about__title */
+    width: 288px;
+    height: 40px;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 24px;
   }
 
   .about__description {
-    /* Mobile-specific styles for .about__description */
+    width: 288px;
+    height: 240px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin: auto;
   }
 }

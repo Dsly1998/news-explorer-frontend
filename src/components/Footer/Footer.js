@@ -9,6 +9,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__text">© 2020 Supersite, Powered by News API</div>
       <div className="footer__buttons-right">
+        <div className="footer__middle-right">
         <Link to="/" className="footer__button">
           Home
         </Link>{" "}
@@ -21,6 +22,8 @@ function Footer() {
         >
           Triple Ten
         </a>
+      </div>
+      <div className="footer__far-right">
         <a
           href="https://github.com/Dsly1998"
           target="_blank"
@@ -37,6 +40,7 @@ function Footer() {
         >
           <img src={facebook} alt="facebook icon" />
         </a>
+        </div>
       </div>
     </footer>
   );

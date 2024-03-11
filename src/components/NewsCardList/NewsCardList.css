@@ -90,23 +90,30 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .news-card-list {
-    /* Mobile-specific styles for .news-card-list */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: inherit;
   }
 
   .news-card-list__title {
-    /* Mobile-specific styles for .news-card-list__title */
+    width: 288px;
+    height: 34px;
+    margin-top: 32px;
+    margin-bottom: 0
   }
 
   .news-card-list__grid {
-    grid-template-columns: 1fr; /* 1 card in a row for mobile */
-    /* Other mobile-specific styles */
-  }
-
-  .news-card-list__no-results {
-    /* Mobile-specific styles for .news-card-list__no-results */
+  display: flex;
+  flex-direction: column;
+  margin-top: 58px;
+  margin-bottom: 0;
   }
 
   .news-card-list__load-more {
-    /* Mobile-specific styles for .news-card-list__load-more */
+    width: 288px;
+    height: 56px;
+    margin-bottom: 24px;
+    margin-top: 16px;
   }
 }

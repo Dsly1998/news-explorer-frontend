@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import headShot from "../../images/headshot.svg"; // Adjust the path as per your file structure
+import headShot from "../../images/Headshot .png"; // Adjust the path as per your file structure
 
 function About() {
   return (
