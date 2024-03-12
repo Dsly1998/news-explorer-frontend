@@ -167,33 +167,3 @@
     text-align: left;
   }
 }
-
-/* Mobile Phones (screens less than or equal to 320px) */
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .header {
-    display: flex;
-    width: 100%;
-    height: 56px;
-  }
-
-  /* Add mobile-specific styles for other .header classes here */
-  .header__button,
-  .header__button-name,
-  .header__button-articles,
-  .header__button-home{
-    width: 0;
-    display: none;
-  }
-  .header__button--news-explorer{
-    margin-left: 16px;
-  }
-  .header__button-signin{
-    width: 0;
-    display: none;
-  }
-  .header__login-right,
-  .header__right-buttons,
-  .header__logout-icon {
-    /* Mobile-specific styles */
-  }
-}

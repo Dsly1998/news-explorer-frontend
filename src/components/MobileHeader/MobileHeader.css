@@ -1,0 +1,68 @@
+/* MobileHeader.css */
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-header__container {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobile-header__menu-button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 16px 16px 16px 0px;
+}
+
+.mobile-header__button--news-explorer {
+  width: 117px;
+  height: 24px;
+  font-family: Roboto Slab;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  margin: 16px 0px 16px 16px;
+}
+
+.mobile-header__menu-icon {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.mobile-header--saved-news {
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.mobile-header__button--news-explorer-saved-news {
+  width: 117px;
+  height: 24px;
+  font-family: Roboto Slab;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(26, 27, 34, 1);
+}
