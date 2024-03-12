@@ -54,9 +54,6 @@
 
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .news-card-list {
-    /* Tablet-specific styles for .news-card-list */
-  }
 
   .news-card-list__title {
     width: 712px;
@@ -94,6 +91,7 @@
     flex-direction: column;
     width: 100%;
     height: inherit;
+    margin-top: 32px;
   }
 
   .news-card-list__title {

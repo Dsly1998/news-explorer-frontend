@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Close from "../../images/close.svg"
 import "./PopupWithForm.css";
 
 const PopupWithForm = ({ isOpen, onClose, children }) => {
@@ -33,6 +34,7 @@ const PopupWithForm = ({ isOpen, onClose, children }) => {
     <div className="popup" onClick={handleOverlayClick}>
       <div className="popup__content">
         <button className="popup__close" onClick={onClose}>
+          <img className="popup__close-icon" alt="close button" src={Close}/>
         </button>
         {children}
       </div>

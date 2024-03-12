@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import MobileHeader from "../MobileHeader/MobileHeader"; // Make sure the path is correct
+import MobileHeader from "../MobileHeader/MobileHeader";
+import PopupMenu from "../PopupMenu/PopupMenu"; // Import PopupMenu component
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCard from "../NewsCard/NewsCard";
 import { getSavedArticles, deleteArticle } from "../../utils/LocalStorage";
@@ -13,6 +14,7 @@ function SavedNews({ currentUser, handleLogout }) {
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,9 +26,7 @@ function SavedNews({ currentUser, handleLogout }) {
     setIsLoading(false); // Set loading to false once articles are fetched
 
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleUnsaveArticle = (articleToDelete) => {
@@ -45,16 +45,28 @@ function SavedNews({ currentUser, handleLogout }) {
 
   const keywords = extractKeywords(savedArticles);
 
+  const togglePopupMenu = () => {
+    setIsPopupMenuOpen(!isPopupMenuOpen);
+  };
+
   return (
     <div className="saved-news__page">
       {isMobile ? (
-        <MobileHeader currentRoute="saved-news" />
+        <MobileHeader currentRoute="saved-news" onMenuClick={togglePopupMenu} />
       ) : (
         <SavedNewsHeader
           userName={currentUser ? currentUser.name : ""}
           onLogout={handleLogout}
         />
       )}
+      <PopupMenu
+        isOpen={isPopupMenuOpen}
+        onClose={togglePopupMenu}
+        isLoggedIn={currentUser != null}
+        userName={currentUser ? currentUser.name : ""}
+        onLogout={handleLogout} // Ensure this prop is correctly implemented
+      />
+
       <SavedNewsInfo
         username={currentUser ? currentUser.name : "User"}
         savedArticles={savedArticles}
