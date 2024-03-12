@@ -30,9 +30,11 @@ function SavedNews({ currentUser, handleLogout }) {
   }, []);
 
   const handleUnsaveArticle = (articleToDelete) => {
-    deleteArticle(articleToDelete);
+    deleteArticle(articleToDelete); // Updates local storage
     setSavedArticles((currentArticles) =>
-      currentArticles.filter((article) => article.id !== articleToDelete.id)
+      currentArticles.filter(
+        (article) => article.title !== articleToDelete.title
+      )
     );
   };
 
@@ -81,7 +83,7 @@ function SavedNews({ currentUser, handleLogout }) {
               <NewsCard
                 key={article.title}
                 article={article}
-                onSave={handleUnsaveArticle}
+                onArticleDelete={handleUnsaveArticle}
                 isInSavedNewsRoute={true}
                 keywords={keywords}
               />

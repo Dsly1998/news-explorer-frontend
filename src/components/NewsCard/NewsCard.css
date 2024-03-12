@@ -340,4 +340,9 @@
     width: 288px;
     margin-top: 16px;
   }
+  .news-card__hover-container{
+    width: 0;
+    height: 0;
+    display: none;
+  }
 }
