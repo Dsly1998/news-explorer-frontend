@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Main from "../Main/Main";
 import PopupSignUp from "../PopupSignUp/PopupSignUp";
 import PopupLogin from "../PopupLogin/PopupLogin";
 import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNews from "../SavedNews/SavedNews";
 import "./App.css";
 import "../../vendor/Style.css";
@@ -12,13 +18,24 @@ function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
   const [isConfirmationOpen, setConfirmationOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
-  const [currentUser] = useState(
-    JSON.parse(localStorage.getItem("currentUser"))
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    try {
+      return localStorage.getItem("isLoggedIn") === "true";
+    } catch (error) {
+      console.error("Error reading isLoggedIn:", error);
+      return false;
+    }
+  });
+  const [currentUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("currentUser"));
+    } catch (error) {
+      console.error("Error reading currentUser:", error);
+      return null;
+    }
+  });
   const [savedArticles] = useState([]);
+  const [error, setError] = useState(null);
 
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
@@ -35,28 +52,33 @@ function App() {
     setLoginOpen(true);
   };
 
-  // Simplified logout logic using local storage
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("currentUser");
+    try {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("currentUser");
+    } catch (error) {
+      setError(`Logout Error: ${error.message}`);
+      console.error(`Logout Error: ${error.message}`);
+    }
     setIsLoggedIn(false);
   };
 
   function RedirectToHomeOnLogout() {
-    const navigate = useNavigate();
+    let navigate = useNavigate();
     useEffect(() => {
       if (!isLoggedIn) {
         navigate("/");
       }
     }, [navigate]);
 
-    return null; // This component does not render anything
+    return null;
   }
 
   return (
     <Router>
       <RedirectToHomeOnLogout />
       <div className="App">
+        {error && <p className="error">{error}</p>}
         <Routes>
           <Route
             path="/"
@@ -72,11 +94,13 @@ function App() {
           <Route
             path="/saved-news"
             element={
-              <SavedNews
-                currentUser={currentUser}
-                savedArticles={savedArticles}
-                handleLogout={handleLogout}
-              />
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <SavedNews
+                  currentUser={currentUser}
+                  savedArticles={savedArticles}
+                  handleLogout={handleLogout}
+                />
+              </ProtectedRoute>
             }
           />
         </Routes>
