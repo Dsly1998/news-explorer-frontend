@@ -23,7 +23,7 @@ function SavedNews({ currentUser, handleLogout }) {
 
     const articles = getSavedArticles();
     setSavedArticles(articles);
-    setIsLoading(false); // Set loading to false once articles are fetched
+    setIsLoading(false); 
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

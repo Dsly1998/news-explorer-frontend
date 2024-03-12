@@ -3,7 +3,7 @@ import "./SearchForm.css";
 import fetchNews from "../../utils/NewsApi";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader"; // Adjust the path as per your folder structure
+import Preloader from "../Preloader/Preloader"; 
 
 function SearchForm({ isLoggedIn }) {
   const [searchTerm, setSearchTerm] = useState("");
