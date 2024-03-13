@@ -3,7 +3,7 @@ import "./SearchForm.css";
 import fetchNews from "../../utils/NewsApi";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader"; 
+import Preloader from "../Preloader/Preloader_temp";
 
 function SearchForm({ isLoggedIn }) {
   const [searchTerm, setSearchTerm] = useState("");

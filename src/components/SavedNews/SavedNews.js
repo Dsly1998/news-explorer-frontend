@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MobileHeader from "../MobileHeader/MobileHeader";
-import PopupMenu from "../PopupMenu/PopupMenu"; // Import PopupMenu component
+import PopupMenu from "../PopupMenu/PopupMenu";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCard from "../NewsCard/NewsCard";
 import { getSavedArticles, deleteArticle } from "../../utils/LocalStorage";
 import Footer from "../Footer/Footer";
 import SavedNewsInfo from "../SavedNewsInfo/SavedNewsInfo";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../Preloader/Preloader_temp";
 import "./SavedNews.css";
 
 function SavedNews({ currentUser, handleLogout }) {
@@ -23,7 +23,7 @@ function SavedNews({ currentUser, handleLogout }) {
 
     const articles = getSavedArticles();
     setSavedArticles(articles);
-    setIsLoading(false); 
+    setIsLoading(false);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
