@@ -7,7 +7,7 @@ import { getSavedArticles, deleteArticle } from "../../utils/LocalStorage";
 import Footer from "../Footer/Footer";
 import SavedNewsInfo from "../SavedNewsInfo/SavedNewsInfo";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader_temp";
+import Preloader from "../Preloader/Preloader";
 import "./SavedNews.css";
 
 function SavedNews({ currentUser, handleLogout }) {

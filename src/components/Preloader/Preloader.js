@@ -1,4 +1,4 @@
-import "./Preloader_temp.css";
+import "./Preloader.css";
 
 function Preloader() {
   return (
