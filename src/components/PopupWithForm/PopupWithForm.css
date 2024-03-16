@@ -280,19 +280,20 @@
     margin-top: 30px;
   }
 
-  .popup__close{
+  .popup__close {
     position: unset;
     display: flex;
-
-    height: 24px;
-    width: 24px;
+    justify-content: end;
+    width: 100vw;
+    background-color: #ff0000;
   }
 
   .popup__close-icon {
-    /* bottom: 50px;
-    right: 10px; */
+    position: relative;
+    display: flex;
+    margin-right: 8px;
+    bottom: 40px;
     height: 24px;
     width: 24px;
-    background-color: #ff0000;
   }
 }

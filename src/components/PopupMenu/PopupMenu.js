@@ -14,6 +14,11 @@ function PopupMenu({
 }) {
   const { navigateHome, navigateSavedArticles } = useNavigation();
 
+  const handleSignInAndClose = () => {
+    onSignInClick();
+    onClose();
+  };
+
   return (
     <div
       className={`popup-menu-close ${isOpen ? "popup-menu_opened" : ""}`}
@@ -53,7 +58,7 @@ function PopupMenu({
             </div>
           </>
         ) : (
-          <button className="popup-menu__item-submit" onClick={onSignInClick}>
+          <button className="popup-menu__item-submit" onClick={handleSignInAndClose}>
             Sign In
           </button>
         )}
