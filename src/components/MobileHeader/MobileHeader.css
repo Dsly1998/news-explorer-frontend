@@ -3,8 +3,9 @@
 .mobile-header {
   display: flex;
   align-items: center;
+  margin: auto;
   height: 56px;
-  width: 100%;
+  width: 288px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -23,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  margin: 16px 16px 16px 0px;
+  padding: 16px 16px 16px 0px;
 }
 
 .mobile-header__button--news-explorer {
@@ -38,7 +39,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
-  margin: 16px 0px 16px 16px;
+  padding: 16px 0px 16px 16px;
 }
 
 .mobile-header__menu-icon {

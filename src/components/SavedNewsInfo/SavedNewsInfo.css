@@ -2,7 +2,7 @@
 
 .saved-news-info {
   font-family: Roboto;
-  margin-left: 104px;
+  padding-left: 104px;
 }
 
 .saved-articles-title {
@@ -51,7 +51,7 @@
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .saved-news-info {
-    margin-left: 40px;
+    padding-left: 40px;
   }
 
   .saved-articles-title {
@@ -100,8 +100,11 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .saved-news-info {
-    width: 320px;
-    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 288px;
+    margin: auto;
+    padding: 0;
   }
 
   .saved-articles-title {

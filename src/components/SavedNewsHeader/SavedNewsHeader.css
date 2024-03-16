@@ -27,7 +27,7 @@
   text-align: left;
   width: 200px;
   height: 24px;
-  margin-left: 104px;
+  padding-left: 104px;
 }
 
 .saved-header__button-home{
@@ -81,7 +81,7 @@
   height: 80px;
   width: 420px;
   justify-content: space-between;
-  margin-right: 104px;
+  padding-right: 104px;
   align-items: center;
 }
 
@@ -100,7 +100,7 @@
     line-height: 24px;
     width: 200px;
     height: 24.8px;
-    margin-left: 40px;
+    padding: 40px;
   }
   
   .saved-header__button-home {
@@ -145,7 +145,7 @@
   }
 
   .saved-header__login-right{
-    margin-right: 40px;
+    padding-right: 40px;
   }
 
 }

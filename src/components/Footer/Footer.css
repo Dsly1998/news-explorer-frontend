@@ -18,7 +18,7 @@
   line-height: 22px;
   text-align: left;
   color: rgba(182, 188, 191, 1);
-  margin-left: 104px;
+  padding-left: 104px;
 }
 
 .footer__buttons-right {
@@ -50,8 +50,7 @@
   border: none;
   height: 24px;
   width: 24px;
-  margin-right: 24px;
-  padding: 0;
+  padding-right: 24px;
 }
 
 .footer__icon-button:hover {
@@ -61,7 +60,7 @@
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .footer__text {
     width: 300px;
-    margin-left: 40px;
+    padding-left: 40px;
   }
 
   .footer__buttons-right {
@@ -88,9 +87,9 @@
     letter-spacing: 0px;
     width: 288px;
     justify-content: center;
-    margin: auto;
     order: 3;
     margin-top: 38px;
+    padding: 0;
   }
 
   .footer__buttons-right {
@@ -109,7 +108,6 @@
 
   .footer__far-right {
     display: flex;
-    width: 72px;
     justify-content: space-between;
     order: 2;
   }
@@ -127,5 +125,9 @@
     letter-spacing: 0px;
     text-align: left;
     order: 1;
+  }
+
+  .footer__icon-button--facebook{
+  padding: 0;
   }
 }
