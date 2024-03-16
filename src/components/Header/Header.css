@@ -74,7 +74,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
-  margin-left: 104px;
+  padding-left: 104px;
 }
 
 .header__button-signin {
@@ -124,7 +124,7 @@
     line-height: 24px;
     width: 200px;
     height: 24.8px;
-    margin-left: 40px;
+    padding-left: 40px;
   }
 
   .header__button-home {
@@ -165,5 +165,10 @@
     line-height: 24px;
     letter-spacing: 0px;
     text-align: left;
+  }
+
+  .header__login-right{
+    margin: 0;
+    padding-right: 40px;
   }
 }

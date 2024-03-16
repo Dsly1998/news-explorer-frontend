@@ -13,12 +13,12 @@ import "./SavedNews.css";
 function SavedNews({ currentUser, handleLogout }) {
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 767);
     };
 
     const articles = getSavedArticles();

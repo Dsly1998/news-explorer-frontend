@@ -3,9 +3,9 @@
 .mobile-header {
   display: flex;
   align-items: center;
-  margin: auto;
+  margin: 0;
   height: 56px;
-  width: 288px;
+  width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -13,7 +13,8 @@
   height: 56px;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 288px;
+  margin: auto;
 }
 
 .mobile-header__menu-button {
@@ -39,7 +40,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
-  padding: 16px 0px 16px 16px;
+  padding-top: 16px;
 }
 
 .mobile-header__menu-icon {

@@ -36,7 +36,7 @@ function NewsCardList({ articles, isLoggedIn }) {
           onClick={loadMoreArticles}
           className="news-card-list__load-more"
         >
-          Load More
+          Show More
         </button>
       )}
     </div>
