@@ -1,11 +1,11 @@
 /* PopupMenu.css */
 
-.popup-menu-close {
+.popup-menu--close {
   display: none;
   width: 0;
 }
 
-.popup-menu_opened {
+.popup-menu--opened {
   position: fixed;
   top: 0;
   left: 0;

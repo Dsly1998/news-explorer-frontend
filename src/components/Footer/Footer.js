@@ -1,8 +1,8 @@
 import React from "react";
-import "./Footer.css"; // Import your CSS styles
+import "./Footer.css";
 import github from "../../images/github.svg";
 import facebook from "../../images/fb.svg";
-import { Link } from "react-router-dom"; // Import Link component
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -15,8 +15,7 @@ function Footer() {
           <div className="footer__middle-right">
             <Link to="/" className="footer__button">
               Home
-            </Link>{" "}
-            {/* Using Link for internal routing */}
+            </Link>
             <a
               href="https://tripleten.com/"
               target="_blank"

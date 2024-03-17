@@ -1,5 +1,3 @@
-/* SavedNewsHeader.css */
-
 .saved-header {
   width: 100%;
   display: flex;
@@ -30,7 +28,7 @@
   padding-left: 104px;
 }
 
-.saved-header__button-home {
+.saved-header__button--home {
   width: 68px;
   height: 24px;
   font-family: Roboto;
@@ -41,7 +39,7 @@
   text-align: center;
 }
 
-.saved-header__button-articles {
+.saved-header__button--articles {
   width: 128px;
   height: 24px;
   font-family: Roboto;
@@ -55,7 +53,7 @@
   margin-top: 27px;
 }
 
-.saved-header__button-name {
+.saved-header__button--name {
   border: 1px solid #1a1b22;
   font-family: Roboto;
   font-size: 18px;
@@ -76,7 +74,7 @@
   height: 24px;
 }
 
-.saved-header__login-right {
+.saved-header__login-area {
   display: flex;
   height: 80px;
   width: 420px;
@@ -89,7 +87,6 @@
   cursor: pointer;
 }
 
-/* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .saved-header {
     height: 66px;
@@ -107,7 +104,7 @@
     padding-left: 40px;
   }
 
-  .saved-header__button-home {
+  .saved-header__button--home {
     font-size: 16px;
     line-height: 24px;
   }
@@ -124,7 +121,7 @@
     width: 230px;
   }
 
-  .saved-header__button-articles {
+  .saved-header__button--articles {
     width: 160px;
     height: 24px;
     font-family: Roboto;
@@ -136,7 +133,7 @@
     padding-bottom: 42px;
   }
 
-  .saved-header__button-name {
+  .saved-header__button--name {
     width: 100px;
     height: 40px;
     font-family: Roboto;
@@ -153,7 +150,6 @@
   }
 }
 
-/* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .saved-header {
     width: 0;

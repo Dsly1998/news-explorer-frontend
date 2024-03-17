@@ -6,30 +6,23 @@ import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import "./Main.css";
-import Preloader from "../Preloader/Preloader";
-import NotFound from "../NotFound/NotFound";
 
 function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
-  console.log("Initial isMobile:", isMobile);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
 
     const handleResize = (e) => {
-      console.log("Window resized, isMobile:", e.matches);
       setIsMobile(e.matches);
     };
 
-    // Call the function immediately to set the initial state
-    handleResize(mediaQuery);
-
     // Add event listener
-    mediaQuery.addListener(handleResize);
+    mediaQuery.addEventListener("change", handleResize);
 
     return () => {
-      mediaQuery.removeListener(handleResize);
+      mediaQuery.removeEventListener("change", handleResize);
     };
   }, []);
 
@@ -39,11 +32,10 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
 
   return (
     <main className="main">
-      <div className="main-wrapper">
+      <div className="main__wrapper">
         {isMobile ? (
           <>
             <MobileHeader currentRoute="main" onMenuClick={togglePopupMenu} />
-            {console.log("Rendering MobileHeader")}
           </>
         ) : (
           <>
@@ -53,7 +45,6 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
               userName={currentUser ? currentUser.name : ""}
               onLogout={handleLogout}
             />
-            {console.log("Rendering Header")}
           </>
         )}
         <PopupMenu

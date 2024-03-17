@@ -35,16 +35,16 @@ function SearchForm({ isLoggedIn }) {
   };
 
   return (
-    <div className="Search-Form">
-      <div className="Search-Form__search-bar">
+    <div className="search-Form">
+      <div className="search-Form__search-bar">
         <input
           type="text"
-          className="Search-Form__search-input"
+          className="search-Form__search-input"
           placeholder="Enter topic"
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
-        <button className="Search-Form__search-button" onClick={handleSearch}>
+        <button className="search-Form__search-button" onClick={handleSearch}>
           Search
         </button>
       </div>

@@ -77,8 +77,8 @@ function App() {
   return (
     <Router>
       <RedirectToHomeOnLogout />
-      <div className="App">
-        {error && <p className="error">{error}</p>}
+      <div className="app">
+        {error && <p className="app__error">{error}</p>}
         <Routes>
           <Route
             path="/"

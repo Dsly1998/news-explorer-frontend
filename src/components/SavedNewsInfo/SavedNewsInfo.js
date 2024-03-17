@@ -1,28 +1,25 @@
-// SavedNewsInfo.js
-
 import React from "react";
-import "./SavedNewsInfo.css"; // Ensure this CSS file has the correct styles
+import "./SavedNewsInfo.css";
 
 function SavedNewsInfo({ username, savedArticles, keywords }) {
-  // Use the passed keywords prop directly
   const firstTwoKeywords = keywords.slice(0, 2).join(", ");
   const otherKeywordCount = keywords.length > 2 ? keywords.length - 2 : 0;
 
   return (
     <div className="saved-news-info">
-      <div className="saved-articles-title">Saved articles</div>
-      <div className="user-saved-articles">
+      <h2 className="saved-news-info__title">Saved articles</h2>
+      <p className="saved-news-info__stats">
         {username}, you have {savedArticles.length} saved articles
-      </div>
-      <div className="by-keywords">
+      </p>
+      <p className="saved-news-info__keywords">
         By keywords:
-        <span className="keywords">{firstTwoKeywords}</span>
+        <span className="saved-news-info__keywords-list">{firstTwoKeywords}</span>
         {otherKeywordCount > 0 && (
-          <span className="other-keywords">
+          <span className="saved-news-info__keywords-other">
             , and {otherKeywordCount} other
           </span>
         )}
-      </div>
+      </p>
     </div>
   );
 }

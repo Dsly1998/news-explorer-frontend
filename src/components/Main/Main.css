@@ -16,7 +16,7 @@
   color: white;
 }
 
-.main-wrapper {
+.main__wrapper {
   width: 100%;
   height: 576px;
   background-image: url("../../images/main.svg");
@@ -54,7 +54,7 @@
     margin-top: 38px;
   }
 
-  .main-wrapper {
+  .main__wrapper {
     height: 400px;
   }
 
@@ -79,7 +79,7 @@
     text-align: left;
   }
 
-  .main-wrapper {
+  .main__wrapper {
     width: 100%;
     height: 536px;
   }
