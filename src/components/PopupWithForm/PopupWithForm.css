@@ -283,7 +283,7 @@
   .popup__close {
     position: unset;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100vw;
     background-color: #ff0000;
   }

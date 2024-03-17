@@ -5,10 +5,14 @@
 }
 
 .footer__content {
+  max-width: 1280px;
   height: 80px;
+  padding-right: 104px;
+  padding-left: 104px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 
 .footer__text {
@@ -20,12 +24,10 @@
   line-height: 22px;
   text-align: left;
   color: rgba(182, 188, 191, 1);
-  padding-left: 104px;
 }
 
 .footer__buttons-right {
   display: flex;
-  padding-right: 104px;
 }
 
 .footer__button {
@@ -68,6 +70,12 @@
     width: 100%;
     height: 64px;
   }
+
+  .footer__content {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
   .footer__text {
     width: 300px;
     padding-left: 40px;
@@ -75,7 +83,6 @@
 
   .footer__buttons-right {
     width: 320px;
-    padding-right: 40px;
   }
 }
 
@@ -92,8 +99,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 16px;
+    padding: 20px 0 16px 0;
   }
 
   .footer__text {

@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import MobileHeader from "../MobileHeader/MobileHeader";
-import PopupMenu from "../PopupMenu/PopupMenu"; // Import PopupMenu
+import PopupMenu from "../PopupMenu/PopupMenu";
 import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import "./Main.css";
+import Preloader from "../Preloader/Preloader";
+import NotFound from "../NotFound/NotFound";
 
 function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
+  console.log("Initial isMobile:", isMobile);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 767);
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const handleResize = (e) => {
+      console.log("Window resized, isMobile:", e.matches);
+      setIsMobile(e.matches);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    // Call the function immediately to set the initial state
+    handleResize(mediaQuery);
+
+    // Add event listener
+    mediaQuery.addListener(handleResize);
+
+    return () => {
+      mediaQuery.removeListener(handleResize);
+    };
   }, []);
 
   const togglePopupMenu = () => {
@@ -28,17 +41,20 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
     <main className="main">
       <div className="main-wrapper">
         {isMobile ? (
-          <MobileHeader
-            currentRoute="main"
-            onMenuClick={togglePopupMenu} // Attach toggle function
-          />
+          <>
+            <MobileHeader currentRoute="main" onMenuClick={togglePopupMenu} />
+            {console.log("Rendering MobileHeader")}
+          </>
         ) : (
-          <Header
-            onSignInClick={toggleLogin}
-            isLoggedIn={isLoggedIn}
-            userName={currentUser ? currentUser.name : ""}
-            onLogout={handleLogout}
-          />
+          <>
+            <Header
+              onSignInClick={toggleLogin}
+              isLoggedIn={isLoggedIn}
+              userName={currentUser ? currentUser.name : ""}
+              onLogout={handleLogout}
+            />
+            {console.log("Rendering Header")}
+          </>
         )}
         <PopupMenu
           isOpen={isPopupMenuOpen}
