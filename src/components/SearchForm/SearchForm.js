@@ -35,7 +35,7 @@ function SearchForm({ isLoggedIn }) {
   };
 
   return (
-    <div className="search-Form">
+    <nav className="search-Form"> 
       <div className="search-Form__search-bar">
         <input
           type="text"
@@ -58,7 +58,7 @@ function SearchForm({ isLoggedIn }) {
           <NotFound />
         ))
       )}
-    </div>
+    </nav>
   );
 }
 

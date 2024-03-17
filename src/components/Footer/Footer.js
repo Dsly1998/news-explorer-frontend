@@ -8,9 +8,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <div className="footer__text">
+        <p className="footer__text">
           © 2020 Supersite, Powered by News API
-        </div>
+        </p>
         <div className="footer__buttons-right">
           <div className="footer__middle-right">
             <Link to="/" className="footer__button">

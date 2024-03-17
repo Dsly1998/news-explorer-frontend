@@ -88,7 +88,7 @@ function NewsCard({
             <img
               src={icon}
               alt={isInSavedNewsRoute ? "Delete article" : "Save article"}
-              className="news-card__icon"
+              className="news-card__icon" // Adding this class
             />
           </button>
         </div>

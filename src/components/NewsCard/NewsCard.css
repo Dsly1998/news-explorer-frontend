@@ -24,6 +24,10 @@
   border: none;
 }
 
+.news-card__button--save:hover {
+  cursor: pointer;
+}
+
 .news-card__button--delete {
   position: relative;
   bottom: 40px;
@@ -32,6 +36,10 @@
   width: 40px;
   border-radius: 10px;
   border: none;
+}
+
+.news-card__button--delete:hover {
+cursor: pointer;
 }
 
 .news-card__image {
@@ -110,6 +118,11 @@
 }
 
 .news-card__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.news-card__icon:hover{
   width: 24px;
   height: 24px;
 }

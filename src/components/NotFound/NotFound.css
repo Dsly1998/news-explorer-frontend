@@ -3,7 +3,6 @@
   height: 374px;
   background: rgba(245, 246, 247, 1);
   width: 100%;
-  margin-top: 32px;
 }
 
 /* Style for the inner container */
@@ -46,4 +45,10 @@
   color: rgba(182, 188, 191, 1);
   margin-bottom: 80px;
   margin-top: 16px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .not-found {
+    margin-top: 32px;
+  }
 }

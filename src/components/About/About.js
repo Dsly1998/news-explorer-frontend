@@ -4,7 +4,7 @@ import headShot from "../../images/Avatar.svg"; // Adjust the path as per your f
 
 function About() {
   return (
-    <div className="about">
+    <section className="about">
       <div className="about__container">
         <img src={headShot} alt="Author" className="about__image" />
         <div className="about__text">
@@ -18,7 +18,7 @@ function About() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
