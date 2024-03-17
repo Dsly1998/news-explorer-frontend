@@ -29,7 +29,7 @@
 
 .header__button-name {
   border: 1px solid rgba(255, 255, 255, 1);
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -46,7 +46,7 @@
 .header__button-articles {
   width: 128px;
   height: 24px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -58,7 +58,7 @@
 .header__button-home {
   width: 68px;
   height: 24px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -76,7 +76,7 @@
 .header__button--news-explorer {
   width: 200px;
   height: 24px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -92,7 +92,7 @@
   height: 48px;
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -160,7 +160,7 @@
   .header__button-articles {
     width: 160px;
     height: 24px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -171,7 +171,7 @@
   .header__button-name {
     width: 100px;
     height: 40px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

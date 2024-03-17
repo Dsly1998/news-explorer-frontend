@@ -31,7 +31,7 @@
 .mobile-header__button--news-explorer {
   width: 117px;
   height: 24px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -60,7 +60,7 @@
 .mobile-header__button--news-explorer-saved-news {
   width: 117px;
   height: 24px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;

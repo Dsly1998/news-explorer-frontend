@@ -39,7 +39,7 @@
 }
 
 .news-card__button--delete:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .news-card__image {
@@ -61,7 +61,7 @@ cursor: pointer;
 .news-card__date {
   width: 149px;
   height: 24px;
-  font-family: Source Sans Pro;
+  font-family: "Source Sans Pro", "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
@@ -72,7 +72,7 @@ cursor: pointer;
   padding-bottom: 12px;
 }
 .news-card__source {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -84,7 +84,7 @@ cursor: pointer;
 }
 
 .news-card__title {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;
@@ -101,7 +101,7 @@ cursor: pointer;
 }
 
 .news-card__description {
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -122,13 +122,13 @@ cursor: pointer;
   height: 24px;
 }
 
-.news-card__icon:hover{
+.news-card__icon:hover {
   width: 24px;
   height: 24px;
 }
 
 .news-card__keyword-bubble {
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -151,7 +151,7 @@ cursor: pointer;
 .news-card__hover-text {
   position: relative;
   bottom: 6px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -231,7 +231,7 @@ cursor: pointer;
   .news-card__title {
     width: 192px;
     height: 72px;
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
     font-size: 22px;
     font-weight: 400;
     line-height: 24px;
@@ -242,7 +242,7 @@ cursor: pointer;
   .news-card__description {
     width: 192px;
     height: 88px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
@@ -302,13 +302,13 @@ cursor: pointer;
     width: 288px;
     height: 196px;
   }
-  .news-card__content{
+  .news-card__content {
     display: flex;
   }
   .news-card__date {
     width: 256px;
     height: 24px;
-    font-family: Source Sans Pro;
+    font-family: "Source Sans Pro", "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -316,7 +316,7 @@ cursor: pointer;
     text-align: left;
   }
   .news-card__source {
-    font-family: Roboto Slab;
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
@@ -326,7 +326,7 @@ cursor: pointer;
     height: 20px;
   }
   .news-card__title {
-    font-family: Roboto Slab;
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 22px;
     font-weight: 400;
     line-height: 24px;
@@ -338,7 +338,7 @@ cursor: pointer;
   .news-card__description {
     width: 256px;
     height: 66px;
-    font-family: Roboto;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
@@ -353,7 +353,7 @@ cursor: pointer;
     width: 288px;
     margin-top: 16px;
   }
-  .news-card__hover-container{
+  .news-card__hover-container {
     width: 0;
     height: 0;
     display: none;

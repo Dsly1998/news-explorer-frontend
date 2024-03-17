@@ -5,9 +5,21 @@
   align-items: center;
   padding: 0;
   color: black;
-  height: 80px;
+  height: 100%;
   background: #c4c4c403;
   border-bottom: 1px solid #d1d2d6;
+}
+
+.saved-header__content{
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 104px 0 104px;
+  color: black;
+  height: 80px;
+  margin: auto;
 }
 
 .saved-header__button {
@@ -17,7 +29,7 @@
 }
 
 .saved-header__button--news-explorer {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -25,13 +37,12 @@
   text-align: left;
   width: 200px;
   height: 24px;
-  padding-left: 104px;
 }
 
 .saved-header__button--home {
   width: 68px;
   height: 24px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -42,7 +53,7 @@
 .saved-header__button--articles {
   width: 128px;
   height: 24px;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -55,7 +66,7 @@
 
 .saved-header__button--name {
   border: 1px solid #1a1b22;
-  font-family: Roboto;
+  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -79,7 +90,6 @@
   height: 80px;
   width: 420px;
   justify-content: space-between;
-  padding-right: 104px;
   align-items: center;
 }
 
@@ -92,8 +102,13 @@
     height: 66px;
   }
 
+  .saved-header__content{
+    height: 66px;
+    padding: 0 40px 0 40px;
+  }
+
   .saved-header__button--news-explorer {
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
@@ -101,7 +116,6 @@
     text-align: left;
     width: 200px;
     height: 24.8px;
-    padding-left: 40px;
   }
 
   .saved-header__button--home {
@@ -124,7 +138,7 @@
   .saved-header__button--articles {
     width: 160px;
     height: 24px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -136,7 +150,7 @@
   .saved-header__button--name {
     width: 100px;
     height: 40px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -145,9 +159,6 @@
     text-overflow: ellipsis;
   }
 
-  .saved-header__login-right {
-    padding-right: 40px;
-  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {

@@ -81,7 +81,7 @@
     width: 424px;
     height: 34px;
     margin-top: 40px;
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 40px;
@@ -139,7 +139,7 @@
   .about__title {
     width: 288px;
     height: 40px;
-    font-family: Roboto Slab;
+    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 40px;
@@ -153,7 +153,7 @@
   .about__description {
     width: 288px;
     height: 240px;
-    font-family: Roboto;
+    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
