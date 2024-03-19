@@ -5,7 +5,7 @@
   align-items: center;
   padding: 0;
   color: white;
-  height: 80px;
+  height: 78px;
   background: #c4c4c403;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -17,8 +17,7 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding-left: 104px;
-  padding-right: 104px;
+  padding: 1px 104px 0 104px;
 }
 
 .header__button {
@@ -29,7 +28,7 @@
 
 .header__button-name {
   border: 1px solid rgba(255, 255, 255, 1);
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -39,14 +38,15 @@
   height: 48px;
   border-radius: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 4px;
 }
 
 .header__button-articles {
   width: 128px;
   height: 24px;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -58,15 +58,15 @@
 .header__button-home {
   width: 68px;
   height: 24px;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0px;
   text-align: center;
   border-bottom: 3px solid #ffffff;
-  padding-bottom: 50px;
-  margin-top: 27px;
+  padding-bottom: 47px;
+  padding-top: 27px;
 }
 
 .header__button:hover {
@@ -76,7 +76,7 @@
 .header__button--news-explorer {
   width: 200px;
   height: 24px;
-  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+  font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -85,6 +85,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
+  padding: 2px 0 0 0;
 }
 
 .header__button-signin {
@@ -92,18 +93,19 @@
   height: 48px;
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 30px;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0px;
   text-align: center;
+  margin-top: 4px;
 }
 
 .header__login-right {
   display: flex;
   height: 80px;
-  width: 420px;
+  width: 424px;
   justify-content: space-between;
   align-items: center;
 }
@@ -111,7 +113,7 @@
 .header__right-buttons {
   display: flex;
   height: 80px;
-  width: 300px;
+  width: 277px;
   justify-content: space-between;
   align-items: center;
 }
@@ -138,12 +140,19 @@
     line-height: 24px;
     width: 200px;
     height: 24.8px;
+    font-family: Roboto Slab;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
   }
 
   .header__button-home {
+    width: 60px;
     font-size: 16px;
     line-height: 24px;
-    padding-bottom: 40px;
+    padding-bottom: 42px;
+    margin-bottom: 6px;
   }
 
   .header__button-signin {
@@ -151,16 +160,18 @@
     height: 40px;
     font-size: 16px;
     line-height: 24px;
+    margin-bottom: 4px;
   }
 
   .header__right-buttons {
-    width: 250px;
+    width: 230px;
+    height: 66px;
   }
 
   .header__button-articles {
     width: 160px;
     height: 24px;
-    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -171,7 +182,7 @@
   .header__button-name {
     width: 100px;
     height: 40px;
-    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

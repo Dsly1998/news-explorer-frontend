@@ -8,9 +8,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <p className="footer__text">
-          © 2020 Supersite, Powered by News API
-        </p>
+        <p className="footer__text">© 2021 Supersite, Powered by News API</p>
         <div className="footer__buttons-right">
           <div className="footer__middle-right">
             <Link to="/" className="footer__button">
@@ -40,7 +38,7 @@ function Footer() {
               rel="noopener noreferrer"
               className="footer__icon-button footer__icon-button--facebook"
             >
-              <img src={facebook} alt="facebook icon" />
+              <img src={facebook} className="footer__facebook-image" alt="facebook icon" />
             </a>
           </div>
         </div>

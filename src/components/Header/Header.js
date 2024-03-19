@@ -47,7 +47,7 @@ function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
               className="header__button header__button-articles"
               onClick={safeNavigateSavedArticles}
             >
-              Saved Articles
+              Saved articles
             </button>
             <button
               className="header__button header__button-name"

@@ -20,7 +20,7 @@ function NewsCardList({ articles, isLoggedIn }) {
 
   return (
     <div className="news-card-list">
-      <h2 className="news-card-list__title">Search Results</h2>
+      <h2 className="news-card-list__title">Search results</h2>
       <div className="news-card-list__grid">
         {articles.slice(0, visibleArticles).map((article) => (
           <NewsCard
@@ -36,7 +36,7 @@ function NewsCardList({ articles, isLoggedIn }) {
           onClick={loadMoreArticles}
           className="news-card-list__load-more"
         >
-          Show More
+          Show more
         </button>
       )}
     </div>

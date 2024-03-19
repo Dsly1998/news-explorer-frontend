@@ -11,7 +11,7 @@
 }
 
 .news-card-list__title {
-  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+  font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 46px;
@@ -37,7 +37,7 @@
 }
 
 .news-card-list__load-more {
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -47,37 +47,43 @@
   height: 64px;
   border-radius: 30px;
   color: rgba(26, 27, 34, 1);
-  background: rgba(238, 238, 238, 1);
+  background: rgba(255, 255, 255, 1);
   border: none;
   margin-bottom: 80px;
 }
 
 .news-card-list__load-more:hover {
   cursor: pointer;
-  background: rgba(232, 232, 232, 1);
+  background: rgba(238, 238, 238, 1);
 }
 
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+.news-card-list {
+  margin-bottom: 0;
+}
+
   .news-card-list__title {
-    width: 712px;
+    width: 690px;
     height: 34px;
-    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 34px;
     margin-top: 40px;
-    margin-bottom: 32px;
+    margin-bottom: 0;
+    padding-bottom: 32px;
   }
 
   .news-card-list__grid {
     margin-bottom: 0;
+    gap: 8px;
   }
 
   .news-card-list__load-more {
     width: 240px;
     height: 56px;
-    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
@@ -85,6 +91,7 @@
     text-align: center;
     margin-bottom: 40px;
     margin-top: 32px;
+    margin-left: 16px;
   }
 }
 
@@ -103,7 +110,7 @@
     height: 34px;
     margin-top: 32px;
     margin-bottom: 0;
-    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 34px;

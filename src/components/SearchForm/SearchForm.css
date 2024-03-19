@@ -11,7 +11,7 @@
   height: 64px;
   display: flex;
   justify-content: space-between;
-  border-radius: 30px;
+  border-radius: 180px;
   background-color: #ffffff;
   align-items: center;
   box-sizing: border-box;
@@ -21,7 +21,6 @@
 .search-Form__search-input {
   width: 440px;
   height: 64px;
-  padding-left: 12px;
   background-color: transparent;
   border: none;
   font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
@@ -38,14 +37,13 @@
 
 ::placeholder {
   color: rgba(182, 188, 191, 1);
-  padding-left: 6px;
 }
 
 .search-Form__search-button {
   width: 168px;
-  height: 66px;
+  height: 64px;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
   background-color: rgba(47, 113, 229, 1);
   padding: 0;
   font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;

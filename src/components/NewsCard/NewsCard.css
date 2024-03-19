@@ -197,15 +197,20 @@
 
   .news-card__image-container {
     width: 224px;
-    height: 150px;
+    height: 162px;
+    margin: 0;
+    display: flex;
   }
   .news-card__image {
     width: 224px;
     height: 150px;
   }
   .news-card__container {
-    margin-top: 8px;
+    display: flex;
     width: 224px;
+    height: 40px;
+    padding-top: 8px;
+    margin: 0;
   }
 
   .news-card__button--delete {
@@ -266,7 +271,7 @@
   }
 
   .news-card__button--save {
-    margin-left: 172px;
+    margin-left: 176px;
   }
 
   .news-card__hover-container-login {
