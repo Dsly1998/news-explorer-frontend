@@ -84,7 +84,7 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .search-Form {
-    padding-bottom: 34px;
+    padding: 0;
   }
 
   .search-Form__search-input {
@@ -99,7 +99,7 @@
   .search-Form__search-bar {
     display: flex;
     flex-direction: column;
-    height: 128px;
+    height: 160px;
     margin: 0;
     background-color: transparent;
     width: 320px;
@@ -108,5 +108,6 @@
   .search-Form__search-button {
     width: 288px;
     height: 56px;
+    margin-bottom: 32px;
   }
 }

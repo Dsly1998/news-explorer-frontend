@@ -127,6 +127,7 @@
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
+    padding-top: 32px;
   }
 
   .about__text {
