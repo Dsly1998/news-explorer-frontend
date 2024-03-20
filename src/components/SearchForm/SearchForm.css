@@ -23,7 +23,7 @@
   height: 64px;
   background-color: transparent;
   border: none;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -46,7 +46,7 @@
   border-radius: 40px;
   background-color: rgba(47, 113, 229, 1);
   padding: 0;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -84,7 +84,7 @@
 /* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .search-Form {
-    padding-bottom: 32px;
+    padding-bottom: 34px;
   }
 
   .search-Form__search-input {
@@ -94,11 +94,12 @@
     margin-bottom: 16px;
     background-color: #ffffff;
     border-radius: 30px;
+    padding: 16px;
   }
   .search-Form__search-bar {
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 128px;
     margin: 0;
     background-color: transparent;
     width: 320px;

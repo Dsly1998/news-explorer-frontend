@@ -32,7 +32,7 @@
 }
 
 .footer__button {
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
@@ -55,7 +55,6 @@
   border: none;
   height: 24px;
   width: 24px;
-
 }
 
 .footer__icon-button:hover {
@@ -88,7 +87,7 @@
     width: 320px;
     padding-right: 2px;
   }
-  .footer__icon-button--facebook{
+  .footer__icon-button--facebook {
     background-image: url("../../images/facebookcircle.svg");
     width: 24px;
     padding: 0;
@@ -96,11 +95,11 @@
 
   .footer__facebook-image {
     display: none;
-    }
+  }
 
-    .footer__far-right{
-      display: flex;
-    }
+  .footer__far-right {
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -128,7 +127,7 @@
     justify-content: center;
     order: 3;
     margin-top: 38px;
-    padding: 0;
+    padding-bottom: 12px;
   }
 
   .footer__buttons-right {
@@ -160,7 +159,7 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 200px;
-    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 48px;

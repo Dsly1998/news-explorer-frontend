@@ -122,12 +122,13 @@
     flex-direction: column;
     margin-top: 58px;
     margin-bottom: 0;
+    gap: 10px;
   }
 
   .news-card-list__load-more {
     width: 288px;
     height: 56px;
     margin-bottom: 24px;
-    margin-top: 16px;
+    margin-top: 21px;
   }
 }
