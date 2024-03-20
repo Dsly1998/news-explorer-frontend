@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MobileHeader from "../MobileHeader/MobileHeader";
-import PopupMenu from "../PopupMenu/PopupMenu"; // Import PopupMenu component
+import PopupMenu from "../PopupMenu/PopupMenu";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCard from "../NewsCard/NewsCard";
 import { getSavedArticles, deleteArticle } from "../../utils/LocalStorage";
@@ -13,17 +13,17 @@ import "./SavedNews.css";
 function SavedNews({ currentUser, handleLogout }) {
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 767);
     };
 
     const articles = getSavedArticles();
     setSavedArticles(articles);
-    setIsLoading(false); // Set loading to false once articles are fetched
+    setIsLoading(false);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

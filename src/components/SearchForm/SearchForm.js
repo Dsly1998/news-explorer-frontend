@@ -3,7 +3,7 @@ import "./SearchForm.css";
 import fetchNews from "../../utils/NewsApi";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader"; // Adjust the path as per your folder structure
+import Preloader from "../Preloader/Preloader";
 
 function SearchForm({ isLoggedIn }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,16 +35,16 @@ function SearchForm({ isLoggedIn }) {
   };
 
   return (
-    <div className="Search-Form">
-      <div className="Search-Form__search-bar">
+    <section className="search-form"> 
+      <div className="search-form__search-bar">
         <input
           type="text"
-          className="Search-Form__search-input"
+          className="search-form__search-input"
           placeholder="Enter topic"
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
-        <button className="Search-Form__search-button" onClick={handleSearch}>
+        <button className="search-form__search-button" onClick={handleSearch}>
           Search
         </button>
       </div>
@@ -58,7 +58,7 @@ function SearchForm({ isLoggedIn }) {
           <NotFound />
         ))
       )}
-    </div>
+    </section>
   );
 }
 
