@@ -192,5 +192,7 @@
 
   .header__login-right {
     margin: 0;
+    width: 354px;
+    padding-bottom: 2px;
   }
 }

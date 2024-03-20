@@ -15,7 +15,7 @@
 }
 
 .saved-news-info__stats {
-  font-family: 'Roboto Slab', 'Inter', 'Roboto', sans-serif;
+  font-family: "Roboto Slab", "Inter", "Roboto", sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 46px;
@@ -56,18 +56,31 @@
     width: 712px;
     height: 24px;
     margin-top: 24px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
   }
 
   .saved-news-info__stats {
     width: 336px;
     height: 68px;
     margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: left;
   }
 
   .saved-news-info__keywords {
     width: 712px;
     height: 24px;
-    margin-top: 16px;
+    margin: 0 0 32px 0;
   }
 
   .saved-news-info__keywords-list {

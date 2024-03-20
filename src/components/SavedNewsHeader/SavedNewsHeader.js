@@ -27,7 +27,7 @@ function SavedNewsHeader({ userName, onLogout }) {
             className="saved-header__button saved-header__button--articles"
             onClick={navigateSavedArticles}
           >
-            Saved Articles
+            Saved articles
           </button>
           <button
             className="saved-header__button saved-header__button--name"

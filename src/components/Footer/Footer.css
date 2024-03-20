@@ -71,17 +71,17 @@
   .footer__content {
     padding-right: 0px;
     padding-left: 0px;
+    height: 64px;
+    align-items: baseline;
   }
 
   .footer__text {
     width: 300px;
     padding-left: 40px;
-    padding-bottom: 25px;
   }
 
   .footer__buttons-right {
     width: 320px;
-    padding-bottom: 25px;
     padding-right: 2px;
   }
   .footer__icon-button--facebook{

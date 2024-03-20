@@ -72,7 +72,7 @@
   padding-bottom: 12px;
 }
 .news-card__source {
-  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+  font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -84,7 +84,7 @@
 }
 
 .news-card__title {
-  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+  font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;
@@ -101,7 +101,7 @@
 }
 
 .news-card__description {
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -128,7 +128,7 @@
 }
 
 .news-card__keyword-bubble {
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -151,7 +151,7 @@
 .news-card__hover-text {
   position: relative;
   bottom: 6px;
-  font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -207,6 +207,7 @@
   }
   .news-card__container {
     display: flex;
+    justify-content: space-between;
     width: 224px;
     height: 40px;
     padding-top: 8px;
@@ -215,7 +216,9 @@
 
   .news-card__button--delete {
     position: relative;
-    left: 85px;
+    left: 0px;
+    top: 0px;
+    margin-right: 8px;
   }
 
   .news-card__hover-container {
@@ -230,13 +233,14 @@
     height: 24px;
     font-size: 18px;
     line-height: 24px;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
+    padding-top: 16px;
   }
 
   .news-card__title {
     width: 192px;
     height: 72px;
-    font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 22px;
     font-weight: 400;
     line-height: 24px;
@@ -247,7 +251,7 @@
   .news-card__description {
     width: 192px;
     height: 88px;
-    font-family: 'Roboto', 'Inter', 'Roboto Slab', sans-serif;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
@@ -259,6 +263,12 @@
 
   .news-card__content {
     padding-left: 16px;
+    height: 270px;
+  }
+
+  .news-card__icon {
+    width: 24px;
+    height: 24px;
   }
 
   .news-card__source {
