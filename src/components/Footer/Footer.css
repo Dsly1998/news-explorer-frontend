@@ -55,11 +55,15 @@
   border: none;
   height: 24px;
   width: 24px;
-  padding-right: 24px;
+
 }
 
 .footer__icon-button:hover {
   cursor: pointer;
+}
+
+.footer__icon-button--github {
+  padding-right: 24px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

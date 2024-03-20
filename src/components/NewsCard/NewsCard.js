@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./NewsCard.css";
 import bookmark from "../../images/bookmark.svg";
-import bookmarkFilled from "../../images/bookmark-filled.svg";
-import bookmarkBlack from "../../images/bookmark-black.svg"; // Path to your black bookmark icon
+import bookmarkFilled from "../../images/bookmarkfilled.svg";
+import bookmarkBlack from "../../images/bookmarkblack.svg"; // Path to your black bookmark icon
 import trash from "../../images/trash.svg";
-import trashDark from "../../images/trash-dark.svg"; // Path to your dark trash icon
+import trashDark from "../../images/trash-black.svg"; // Path to your dark trash icon
 import {
   isArticleSaved,
   saveArticle,
@@ -88,7 +88,9 @@ function NewsCard({
             <img
               src={icon}
               alt={isInSavedNewsRoute ? "Delete article" : "Save article"}
-              className="news-card__icon" // Adding this class
+              className={`news-card__icon ${
+                hovered ? "news-card__icon--hovered" : ""
+              }`}
             />
           </button>
         </div>

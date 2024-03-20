@@ -2,7 +2,6 @@
 
 .news-card-list {
   background-color: rgba(245, 246, 247, 1);
-  margin-bottom: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@
   line-height: 46px;
   letter-spacing: 0px;
   text-align: left;
-  width: 1240px;
+  width: 1232px;
   height: 46px;
   color: rgba(26, 27, 34, 1);
   margin-top: 80px;
@@ -27,7 +26,7 @@
 .news-card-list__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 64px;
 }
 
@@ -59,9 +58,9 @@
 
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-.news-card-list {
-  margin-bottom: 0;
-}
+  .news-card-list {
+    margin-bottom: 0;
+  }
 
   .news-card-list__title {
     width: 690px;

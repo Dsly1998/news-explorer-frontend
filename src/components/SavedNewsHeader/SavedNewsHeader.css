@@ -37,6 +37,7 @@
   text-align: left;
   width: 200px;
   height: 24px;
+  padding: 2px 0 0 0;
 }
 
 .saved-header__button--home {
@@ -51,7 +52,7 @@
 }
 
 .saved-header__button--articles {
-  width: 128px;
+  width: 174px;
   height: 24px;
   font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
@@ -60,8 +61,8 @@
   letter-spacing: 0px;
   text-align: center;
   border-bottom: 3px solid #1a1b22;
-  padding-bottom: 50px;
-  margin-top: 27px;
+  padding-bottom: 48px;
+  margin: 30px 0 2px 0;
 }
 
 .saved-header__button--name {
@@ -76,8 +77,9 @@
   height: 48px;
   border-radius: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 6px;
 }
 
 .saved-header__logout-icon {
@@ -88,7 +90,7 @@
 .saved-header__login-area {
   display: flex;
   height: 80px;
-  width: 420px;
+  width: 424px;
   justify-content: space-between;
   align-items: center;
 }
@@ -117,7 +119,7 @@
     width: 200px;
     height: 24.8px;
     padding: 2px 0 0 0;
-    }
+  }
 
   .saved-header__button--home {
     font-size: 16px;
@@ -164,7 +166,7 @@
 
   .saved-header__login-area {
     width: 358px;
-    height:66px
+    height: 66px;
   }
 }
 

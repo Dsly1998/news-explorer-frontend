@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 15px;
   border: #ffffff;
   overflow: hidden;
 }
@@ -17,11 +17,12 @@
 }
 
 .news-card__button--save {
-  margin-left: 320px;
+  margin-left: 310px;
   height: 40px;
   width: 40px;
-  border-radius: 10px;
+  border-radius: 7px;
   border: none;
+  padding: 0;
 }
 
 .news-card__button--save:hover {
@@ -31,10 +32,10 @@
 .news-card__button--delete {
   position: relative;
   bottom: 40px;
-  left: 150px;
+  left: 154px;
   height: 40px;
   width: 40px;
-  border-radius: 10px;
+  border-radius: 7px;
   border: none;
 }
 
@@ -120,11 +121,10 @@
 .news-card__icon {
   width: 24px;
   height: 24px;
-}
-
-.news-card__icon:hover {
-  width: 24px;
-  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .news-card__keyword-bubble {
@@ -144,8 +144,9 @@
   left: 24px;
   width: fit-content;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: #ffffff;
+  padding: 0 6px 0 6px;
 }
 
 .news-card__hover-text {

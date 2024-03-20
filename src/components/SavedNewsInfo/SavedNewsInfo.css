@@ -1,6 +1,9 @@
 .saved-news-info {
   font-family: Roboto;
+  margin: auto;
+  max-width: 1280px;
   padding-left: 104px;
+  padding-right: 104px;
 }
 
 .saved-news-info__title {
@@ -24,6 +27,7 @@
   width: 530px;
   height: 92px;
   margin-top: 28px;
+  margin-bottom: 0;
 }
 
 .saved-news-info__keywords {

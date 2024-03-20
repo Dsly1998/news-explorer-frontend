@@ -28,7 +28,7 @@ function Footer() {
               href="https://github.com/Dsly1998"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer__icon-button"
+              className="footer__icon-button footer__icon-button--github"
             >
               <img src={github} alt="github icon" />
             </a>
