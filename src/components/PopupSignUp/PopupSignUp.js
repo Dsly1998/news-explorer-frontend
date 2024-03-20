@@ -35,7 +35,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
       <div className="popup__wrapper">
-        <h1 className="popup__title">Sign up</h1>
+        <h2 className="popup__title">Sign up</h2>
         <form className="popup__form" onSubmit={handleSubmit}>
           <label className="popup__label-email">Email</label>
           <input

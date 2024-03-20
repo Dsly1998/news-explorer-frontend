@@ -5,7 +5,7 @@
   width: 0;
 }
 
-.popup-menu--opened {
+.popup-menu {
   position: fixed;
   top: 0;
   left: 0;

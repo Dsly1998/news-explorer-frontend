@@ -66,7 +66,7 @@
 }
 
 .saved-header__button--name {
-  border: 1px solid #1a1b22;
+  border: 1px solid #D1D2D6;
   font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -80,6 +80,10 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 6px;
+}
+
+.saved-header__button--name:hover {
+  border: 1px solid #1a1b22;
 }
 
 .saved-header__logout-icon {

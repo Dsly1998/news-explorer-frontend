@@ -21,7 +21,7 @@ function PopupMenu({
 
   return (
     <div
-      className={`popup-menu--close ${isOpen ? "popup-menu--opened" : ""}`}
+      className={`popup-menu--close ${isOpen ? "popup-menu" : ""}`}
       onClick={onClose}
     >
       <div className="popup-menu__background">
