@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./NewsCard.css";
 import bookmark from "../../images/bookmark.svg";
 import bookmarkFilled from "../../images/bookmarkfilled.svg";
-import bookmarkBlack from "../../images/bookmarkblack.svg"; // Path to your black bookmark icon
+import bookmarkBlack from "../../images/bookmarkblack.svg";
 import trash from "../../images/trash.svg";
-import trashDark from "../../images/trash-black.svg"; // Path to your dark trash icon
-import {
-  isArticleSaved,
-  saveArticle,
-  deleteArticle,
-} from "../../utils/LocalStorage";
+import trashDark from "../../images/trash-black.svg";
+import { createArticle, deleteArticle, getArticlesByUser } from '../../utils/api'; // Adjust the path
 
 function NewsCard({
   article,
@@ -17,22 +13,30 @@ function NewsCard({
   onArticleSave,
   onArticleDelete,
   isLoggedIn,
+  token  // Ensure token is passed as a prop
 }) {
-  const [isSaved, setIsSaved] = useState(isArticleSaved(article));
+  const [isSaved, setIsSaved] = useState(false); // Initial state should be false
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    setIsSaved(isArticleSaved(article));
-  }, [article]);
+    const checkIfArticleIsSaved = async () => {
+      const articles = await getArticlesByUser(token);
+      setIsSaved(articles.some(savedArticle => savedArticle._id === article._id));
+    };
+  
+    if (isLoggedIn) {
+      checkIfArticleIsSaved();
+    }
+  }, [article, isLoggedIn, token]);  
 
-  const handleSaveClick = () => {
-    if (!isLoggedIn && !isInSavedNewsRoute) return;
+  const handleSaveClick = async () => {
+    if (!isLoggedIn) return;
     if (isInSavedNewsRoute) {
-      deleteArticle(article);
+      await deleteArticle(article._id, token);
       onArticleDelete && onArticleDelete(article);
     } else {
       if (!isSaved) {
-        saveArticle(article);
+        await createArticle(article, token);
         setIsSaved(true);
         onArticleSave && onArticleSave(article);
       }
@@ -40,14 +44,8 @@ function NewsCard({
   };
 
   const icon = isInSavedNewsRoute
-    ? hovered
-      ? trashDark
-      : trash
-    : isSaved
-    ? bookmarkFilled
-    : hovered
-    ? bookmarkBlack
-    : bookmark;
+    ? hovered ? trashDark : trash
+    : isSaved ? bookmarkFilled : hovered ? bookmarkBlack : bookmark;
 
   const buttonClass = isInSavedNewsRoute
     ? "news-card__button--delete"

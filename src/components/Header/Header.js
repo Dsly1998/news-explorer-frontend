@@ -3,7 +3,7 @@ import useNavigation from "../Navigation/Navigation";
 import "./Header.css";
 import logoutIcon from "../../images/logout.svg";
 
-function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
+function Header({ isLoggedIn, name, onSignInClick, onLogout }) {
   const { navigateHome, navigateSavedArticles } = useNavigation();
 
   // Error-safe navigation functions
@@ -53,7 +53,7 @@ function Header({ isLoggedIn, userName, onSignInClick, onLogout }) {
               className="header__button header__button-name"
               onClick={onLogout}
             >
-              {userName}
+              {name}
               <img
                 className="header__logout-icon"
                 src={logoutIcon}

@@ -11,6 +11,8 @@ import PopupLogin from "../PopupLogin/PopupLogin";
 import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNews from "../SavedNews/SavedNews";
+import { registerUser, getUserProfile } from "../../utils/auth";
+import { getArticlesByUser } from "../../utils/api";
 import "./App.css";
 import "../../vendor/Style.css";
 
@@ -18,23 +20,10 @@ function App() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
   const [isConfirmationOpen, setConfirmationOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    try {
-      return localStorage.getItem("isLoggedIn") === "true";
-    } catch (error) {
-      console.error("Error reading isLoggedIn:", error);
-      return false;
-    }
-  });
-  const [currentUser] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("currentUser"));
-    } catch (error) {
-      console.error("Error reading currentUser:", error);
-      return null;
-    }
-  });
-  const [savedArticles] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [token, setToken] = useState(null);
+  const [savedArticles, setSavedArticles] = useState([]);
   const [error, setError] = useState(null);
 
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
@@ -53,15 +42,49 @@ function App() {
   };
 
   const handleLogout = () => {
-    try {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("currentUser");
-    } catch (error) {
-      setError(`Logout Error: ${error.message}`);
-      console.error(`Logout Error: ${error.message}`);
-    }
     setIsLoggedIn(false);
+    setCurrentUser(null);
+    setToken(null);
+    localStorage.removeItem("token");
+    setSavedArticles([]);
   };
+
+const fetchUserProfile = async (token) => {
+  try {
+      const userProfile = await getUserProfile(token);
+      setCurrentUser(userProfile); // Set user profile in state
+  } catch (error) {
+      setError(`Error fetching user profile: ${error.message}`);
+  }
+};
+
+  const handleSignUp = async (signupData) => {
+    try {
+      await registerUser(signupData);
+      setSignUpOpen(false);
+      setConfirmationOpen(true);
+    } catch (error) {
+      setError(`Signup Error: ${error.message}`);
+    }
+  };
+
+  const fetchSavedArticles = async (userToken) => {
+    try {
+      const articles = await getArticlesByUser(userToken);
+      setSavedArticles(articles);
+    } catch (error) {
+      setError(`Error fetching articles: ${error.message}`);
+    }
+  };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      setIsLoggedIn(true);
+      fetchSavedArticles(storedToken);
+    }
+  }, []);
 
   function RedirectToHomeOnLogout() {
     let navigate = useNavigate();
@@ -69,7 +92,7 @@ function App() {
       if (!isLoggedIn) {
         navigate("/");
       }
-    }, [navigate]);
+    }, [navigate, ]);
 
     return null;
   }
@@ -99,20 +122,27 @@ function App() {
                   currentUser={currentUser}
                   savedArticles={savedArticles}
                   handleLogout={handleLogout}
+                  token={token}
                 />
               </ProtectedRoute>
             }
           />
         </Routes>
         <PopupLogin
-          isOpen={isLoginOpen}
-          onClose={toggleLogin}
-          onSignUpClick={handleSignUpClick}
-        />
+        isOpen={isLoginOpen}
+        onClose={toggleLogin}
+        onSignUpClick={handleSignUpClick}
+        setIsLoggedIn={setIsLoggedIn}
+        setToken={setToken}
+        fetchUserProfile={fetchUserProfile}
+        setError={setError}
+        fetchSavedArticles={fetchSavedArticles}
+      />
         <PopupSignUp
           isOpen={isSignUpOpen}
           onClose={toggleSignUp}
           onSignInClick={handleSignInClick}
+          onSignUp={handleSignUp}
           onConfirmation={toggleConfirmation}
         />
         <PopupConfirmation

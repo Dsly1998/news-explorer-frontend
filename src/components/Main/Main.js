@@ -42,7 +42,7 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
             <Header
               onSignInClick={toggleLogin}
               isLoggedIn={isLoggedIn}
-              userName={currentUser ? currentUser.name : ""}
+              name={currentUser ? currentUser.name : ""}
               onLogout={handleLogout}
             />
           </>
@@ -51,7 +51,7 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout }) {
           isOpen={isPopupMenuOpen}
           onClose={togglePopupMenu}
           isLoggedIn={isLoggedIn}
-          userName={currentUser ? currentUser.name : ""}
+          name={currentUser ? currentUser.name : ""}
           onLogout={handleLogout}
           onSignInClick={toggleLogin}
         />

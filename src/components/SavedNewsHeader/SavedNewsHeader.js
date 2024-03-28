@@ -3,7 +3,7 @@ import useNavigation from "../Navigation/Navigation";
 import logoutBlack from "../../images/logoutblack.svg";
 import "./SavedNewsHeader.css";
 
-function SavedNewsHeader({ userName, onLogout }) {
+function SavedNewsHeader({ name, onLogout }) {
   const { navigateHome, navigateSavedArticles } = useNavigation();
 
   return (
@@ -33,7 +33,7 @@ function SavedNewsHeader({ userName, onLogout }) {
             className="saved-header__button saved-header__button--name"
             onClick={onLogout}
           >
-            {userName}
+            {name}
             <img
               className="saved-header__icon saved-header__icon--logout"
               src={logoutBlack}

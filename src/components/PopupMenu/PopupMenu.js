@@ -8,7 +8,7 @@ function PopupMenu({
   isOpen,
   onClose,
   isLoggedIn,
-  userName,
+  name,
   onSignInClick,
   onLogout,
 }) {
@@ -54,7 +54,7 @@ function PopupMenu({
                 onClick={onLogout}
               >
                 <div className="popup-menu__button-content">
-                  {userName}
+                  {name}
                   <img
                     src={logoutIcon}
                     alt="Logout"
