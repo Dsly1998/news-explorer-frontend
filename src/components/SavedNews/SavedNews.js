@@ -10,7 +10,8 @@ import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader";
 import "./SavedNews.css";
 
-function SavedNews({ currentUser, handleLogout, token }) { // Ensure token is passed as a prop
+function SavedNews({ currentUser, handleLogout, token }) {
+  // Ensure token is passed as a prop
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
@@ -26,7 +27,7 @@ function SavedNews({ currentUser, handleLogout, token }) { // Ensure token is pa
         const articles = await getArticlesByUser(token);
         setSavedArticles(articles);
       } catch (error) {
-        console.error('Error fetching saved articles:', error);
+        console.error("Error fetching saved articles:", error);
         // Handle error
       } finally {
         setIsLoading(false);
@@ -42,20 +43,20 @@ function SavedNews({ currentUser, handleLogout, token }) { // Ensure token is pa
     return () => window.removeEventListener("resize", handleResize);
   }, [currentUser, token]);
 
-  const handleUnsaveArticle = async (articleToDelete) => {
+  const handleUnsaveArticle = async (articleId) => {
     try {
-      await deleteArticle(articleToDelete._id, token);
+      await deleteArticle(articleId, token);
       setSavedArticles((currentArticles) =>
-        currentArticles.filter((article) => article._id !== articleToDelete._id)
+        currentArticles.filter((article) => article._id !== articleId)
       );
     } catch (error) {
-      console.error('Error deleting article:', error);
+      console.error("Error deleting article:", error);
       // Handle error
     }
   };
 
   const extractKeywords = (articles) => {
-    const allKeywords = articles.flatMap(article =>
+    const allKeywords = articles.flatMap((article) =>
       article.searchKeyword ? [article.searchKeyword] : []
     );
     return Array.from(new Set(allKeywords));
@@ -94,11 +95,12 @@ function SavedNews({ currentUser, handleLogout, token }) { // Ensure token is pa
           <div className="saved-news__container">
             {savedArticles.map((article) => (
               <NewsCard
-                key={article.title}
+                key={article._id} // Use _id instead of title for key
                 article={article}
                 onArticleDelete={handleUnsaveArticle}
                 isInSavedNewsRoute={true}
-                keywords={keywords}
+                isLoggedIn={!!currentUser}
+                token={token}
               />
             ))}
           </div>

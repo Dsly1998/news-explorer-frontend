@@ -49,14 +49,14 @@ function App() {
     setSavedArticles([]);
   };
 
-const fetchUserProfile = async (token) => {
-  try {
+  const fetchUserProfile = async (token) => {
+    try {
       const userProfile = await getUserProfile(token);
       setCurrentUser(userProfile); // Set user profile in state
-  } catch (error) {
+    } catch (error) {
       setError(`Error fetching user profile: ${error.message}`);
-  }
-};
+    }
+  };
 
   const handleSignUp = async (signupData) => {
     try {
@@ -82,6 +82,7 @@ const fetchUserProfile = async (token) => {
     if (storedToken) {
       setToken(storedToken);
       setIsLoggedIn(true);
+      fetchUserProfile(storedToken);
       fetchSavedArticles(storedToken);
     }
   }, []);
@@ -92,7 +93,7 @@ const fetchUserProfile = async (token) => {
       if (!isLoggedIn) {
         navigate("/");
       }
-    }, [navigate, ]);
+    }, [navigate]);
 
     return null;
   }
@@ -111,6 +112,7 @@ const fetchUserProfile = async (token) => {
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
                 handleLogout={handleLogout}
+                token={token}
               />
             }
           />
@@ -129,15 +131,15 @@ const fetchUserProfile = async (token) => {
           />
         </Routes>
         <PopupLogin
-        isOpen={isLoginOpen}
-        onClose={toggleLogin}
-        onSignUpClick={handleSignUpClick}
-        setIsLoggedIn={setIsLoggedIn}
-        setToken={setToken}
-        fetchUserProfile={fetchUserProfile}
-        setError={setError}
-        fetchSavedArticles={fetchSavedArticles}
-      />
+          isOpen={isLoginOpen}
+          onClose={toggleLogin}
+          onSignUpClick={handleSignUpClick}
+          setIsLoggedIn={setIsLoggedIn}
+          setToken={setToken}
+          fetchUserProfile={fetchUserProfile}
+          setError={setError}
+          fetchSavedArticles={fetchSavedArticles}
+        />
         <PopupSignUp
           isOpen={isSignUpOpen}
           onClose={toggleSignUp}

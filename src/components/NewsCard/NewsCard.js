@@ -5,7 +5,11 @@ import bookmarkFilled from "../../images/bookmarkfilled.svg";
 import bookmarkBlack from "../../images/bookmarkblack.svg";
 import trash from "../../images/trash.svg";
 import trashDark from "../../images/trash-black.svg";
-import { createArticle, deleteArticle, getArticlesByUser } from '../../utils/api'; // Adjust the path
+import {
+  createArticle,
+  deleteArticle,
+  getArticlesByUser,
+} from "../../utils/api"; // Adjust the path
 
 function NewsCard({
   article,
@@ -13,7 +17,7 @@ function NewsCard({
   onArticleSave,
   onArticleDelete,
   isLoggedIn,
-  token  // Ensure token is passed as a prop
+  token, // Ensure token is passed as a prop
 }) {
   const [isSaved, setIsSaved] = useState(false); // Initial state should be false
   const [hovered, setHovered] = useState(false);
@@ -21,13 +25,15 @@ function NewsCard({
   useEffect(() => {
     const checkIfArticleIsSaved = async () => {
       const articles = await getArticlesByUser(token);
-      setIsSaved(articles.some(savedArticle => savedArticle._id === article._id));
+      setIsSaved(
+        articles.some((savedArticle) => savedArticle._id === article._id)
+      );
     };
-  
+
     if (isLoggedIn) {
       checkIfArticleIsSaved();
     }
-  }, [article, isLoggedIn, token]);  
+  }, [article, isLoggedIn, token]);
 
   const handleSaveClick = async () => {
     if (!isLoggedIn) return;
@@ -44,8 +50,14 @@ function NewsCard({
   };
 
   const icon = isInSavedNewsRoute
-    ? hovered ? trashDark : trash
-    : isSaved ? bookmarkFilled : hovered ? bookmarkBlack : bookmark;
+    ? hovered
+      ? trashDark
+      : trash
+    : isSaved
+    ? bookmarkFilled
+    : hovered
+    ? bookmarkBlack
+    : bookmark;
 
   const buttonClass = isInSavedNewsRoute
     ? "news-card__button--delete"
@@ -101,9 +113,9 @@ function NewsCard({
             day: "numeric",
           })}
         </span>
-        <h3 className="news-card__title">{article.title}</h3>
+        <h3 className="news-card__title">{article.content}</h3>
         <p className="news-card__description">{article.description}</p>
-        <span className="news-card__source">{article.source.name}</span>
+        <span className="news-card__source">{article.title}</span>
       </div>
     </div>
   );
