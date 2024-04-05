@@ -20,7 +20,6 @@ export const getArticlesByUser = async (token) => {
 
 // Create a new article
 export const createArticle = async (articleData, token) => {
-  console.log("Sending article data:", articleData, "tokendata:", token);
   try {
     const response = await fetch(`${API_BASE_URL}/articles`, {
       method: "POST",

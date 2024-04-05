@@ -173,12 +173,12 @@
 
 .news-card__hover-container-login {
   position: absolute;
-  right: 63px;
+  right: 68px;
   top: 0;
   height: 40px;
   width: 182px;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .news-card__container {
@@ -188,7 +188,6 @@
   margin-top: 24px;
   background-color: transparent;
 }
-
 /* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .news-card {

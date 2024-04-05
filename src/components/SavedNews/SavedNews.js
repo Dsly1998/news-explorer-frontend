@@ -51,7 +51,7 @@ function SavedNews({ currentUser, handleLogout, token }) {
       );
     } catch (error) {
       console.error("Error deleting article:", error);
-      // Handle error
+      // Optionally, update the UI to show an error message
     }
   };
 

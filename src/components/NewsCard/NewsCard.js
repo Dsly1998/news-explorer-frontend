@@ -7,9 +7,8 @@ import trash from "../../images/trash.svg";
 import trashDark from "../../images/trash-black.svg";
 import {
   createArticle,
-  deleteArticle,
   getArticlesByUser,
-} from "../../utils/api"; // Adjust the path
+} from "../../utils/api"; 
 
 function NewsCard({
   article,
@@ -17,9 +16,9 @@ function NewsCard({
   onArticleSave,
   onArticleDelete,
   isLoggedIn,
-  token, // Ensure token is passed as a prop
+  token,
 }) {
-  const [isSaved, setIsSaved] = useState(false); // Initial state should be false
+  const [isSaved, setIsSaved] = useState(false); 
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
@@ -37,9 +36,9 @@ function NewsCard({
 
   const handleSaveClick = async () => {
     if (!isLoggedIn) return;
+
     if (isInSavedNewsRoute) {
-      await deleteArticle(article._id, token);
-      onArticleDelete && onArticleDelete(article);
+      onArticleDelete && onArticleDelete(article._id); 
     } else {
       if (!isSaved) {
         await createArticle(article, token);
@@ -115,7 +114,7 @@ function NewsCard({
         </span>
         <h3 className="news-card__title">{article.content}</h3>
         <p className="news-card__description">{article.description}</p>
-        <span className="news-card__source">{article.title}</span>
+        <span className="news-card__source">{article.source.name}</span>
       </div>
     </div>
   );
