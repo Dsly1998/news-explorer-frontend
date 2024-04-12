@@ -1,7 +1,7 @@
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://articlelist.ignorelist.com"
-    : "http://localhost:3001";
+    : "http://localhost:";
 
 // Fetch articles by a user
 export const getArticlesByUser = async (token) => {
