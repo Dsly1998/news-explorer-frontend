@@ -1,5 +1,3 @@
-/* SavedNewsHeader.css */
-
 .saved-header {
   width: 100%;
   display: flex;
@@ -7,19 +5,31 @@
   align-items: center;
   padding: 0;
   color: black;
-  height: 80px;
+  height: 100%;
   background: #c4c4c403;
-  border-bottom: 1px solid #D1D2D6;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.saved-header__content {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 104px 0 104px;
+  color: black;
+  height: 80px;
+  margin: auto;
 }
 
 .saved-header__button {
-  color: #1A1B22;
+  color: #1a1b22;
   background: transparent;
   border: none;
 }
 
 .saved-header__button--news-explorer {
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -27,13 +37,13 @@
   text-align: left;
   width: 200px;
   height: 24px;
-  margin-left: 104px;
+  padding: 2px 0 0 0;
 }
 
-.saved-header__button-home{
+.saved-header__button--home {
   width: 68px;
   height: 24px;
-  font-family: Roboto;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -41,23 +51,23 @@
   text-align: center;
 }
 
-.saved-header__button-articles{
-  width: 128px;
+.saved-header__button--articles {
+  width: 174px;
   height: 24px;
-  font-family: Roboto;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0px;
   text-align: center;
-  border-bottom: 3px solid #1A1B22;
-  padding-bottom: 50px;
-  margin-top: 27px;
+  border-bottom: 3px solid #1a1b22;
+  padding-bottom: 48px;
+  margin: 30px 0 2px 0;
 }
 
-.saved-header__button-name{
-  border: 1px solid #1A1B22;
-  font-family: Roboto;
+.saved-header__button--name {
+  border: 1px solid #D1D2D6;
+  font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -67,21 +77,25 @@
   height: 48px;
   border-radius: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 6px;
 }
 
-.saved-header__logout-icon{
+.saved-header__button--name:hover {
+  border: 1px solid #1a1b22;
+}
+
+.saved-header__logout-icon {
   width: 24px;
   height: 24px;
 }
 
-.saved-header__login-right{
+.saved-header__login-area {
   display: flex;
   height: 80px;
-  width: 420px;
+  width: 424px;
   justify-content: space-between;
-  margin-right: 104px;
   align-items: center;
 }
 
@@ -89,72 +103,80 @@
   cursor: pointer;
 }
 
-/* Tablet (screens less than or equal to 768px) */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .saved-header {
     height: 66px;
   }
-  
+
+  .saved-header__content {
+    height: 66px;
+    padding: 0 40px 0 40px;
+  }
+
   .saved-header__button--news-explorer {
+    font-family: "Roboto Slab", "Roboto", "Inter", sans-serif;
     font-size: 20px;
+    font-weight: 700;
     line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
     width: 200px;
     height: 24.8px;
-    margin-left: 40px;
+    padding: 2px 0 0 0;
   }
-  
-  .saved-header__button-home {
+
+  .saved-header__button--home {
     font-size: 16px;
     line-height: 24px;
   }
-  
+
   .saved-header__button-signin {
     width: 152px;
     height: 40px;
     font-size: 16px;
     line-height: 24px;
   }
-  
+
   .saved-header__right-buttons {
     margin-right: 40px;
     width: 230px;
   }
-  
-  .saved-header__button-articles {
+
+  .saved-header__button--articles {
     width: 160px;
     height: 24px;
-    font-family: Roboto;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0px;
     text-align: center;
     padding-bottom: 42px;
+    margin-bottom: 6px;
   }
 
-  .saved-header__button-name {
+  .saved-header__button--name {
     width: 100px;
     height: 40px;
-    font-family: Roboto;
+    font-family: "Roboto", "Inter", "Roboto Slab", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0px;
     text-align: left;
     text-overflow: ellipsis;
+    justify-content: space-around;
   }
 
-  .saved-header__login-right{
-    margin-right: 40px;
+  .saved-header__login-area {
+    width: 358px;
+    height: 66px;
   }
-
 }
 
-/* Mobile Phones (screens less than or equal to 320px) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .saved-header {
- width: 0;
- display:none ;
+    width: 0;
+    display: none;
   }
-
 }

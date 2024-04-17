@@ -1,26 +1,33 @@
 import React, { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
-import { saveArticle, isArticleSaved } from "../../utils/LocalStorage";
+import { createArticle, getArticlesByUser } from "../../utils/api"; // Adjust this path
 import "./NewsCardList.css";
 
-function NewsCardList({ articles, isLoggedIn }) {
+function NewsCardList({ articles, isLoggedIn, token }) { // Ensure token is passed as a prop
   const [visibleArticles, setVisibleArticles] = useState(3);
 
   // Handle saving an article
-  const onSave = (article) => {
-    if (!isArticleSaved(article)) {
-      saveArticle(article);
-      // Add any additional logic if needed after saving the article
+  const onSave = async (article) => {
+    try {
+      const savedArticles = await getArticlesByUser(token);
+      const isSaved = savedArticles.some(savedArticle => savedArticle._id === article._id);
+      if (!isSaved) {
+        await createArticle(article, token);
+        // Add any additional logic if needed after saving the article
+      }
+    } catch (error) {
+      console.error('Error saving article:', error);
+      // Handle error appropriately
     }
   };
 
   const loadMoreArticles = () => {
-    setVisibleArticles((prevVisible) => prevVisible + 3);
+    setVisibleArticles(prevVisible => prevVisible + 3);
   };
 
   return (
     <div className="news-card-list">
-      <h2 className="news-card-list__title">Search Results</h2>
+      <h2 className="news-card-list__title">Search results</h2>
       <div className="news-card-list__grid">
         {articles.slice(0, visibleArticles).map((article) => (
           <NewsCard
@@ -28,6 +35,7 @@ function NewsCardList({ articles, isLoggedIn }) {
             article={article}
             onSave={onSave}
             isLoggedIn={isLoggedIn}
+            token={token} // Pass the token to NewsCard
           />
         ))}
       </div>
@@ -36,7 +44,7 @@ function NewsCardList({ articles, isLoggedIn }) {
           onClick={loadMoreArticles}
           className="news-card-list__load-more"
         >
-          Load More
+          Show more
         </button>
       )}
     </div>

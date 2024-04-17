@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { registerUser } from "../../utils/auth"; // Adjust this path
 
 const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [name, setUsername] = useState("");
   const [error, setError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
-  // Update the form validity whenever there's a change in the fields
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const areFieldsFilled = email && password && username;
-    const isDuplicateEmail = localStorage.getItem(email) !== null;
-
-    setIsFormValid(isEmailValid && areFieldsFilled && !isDuplicateEmail);
-  }, [email, password, username]);
+    setIsFormValid(isEmailValid && email && password && name);
+  }, [email, password, name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,16 +23,19 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify({ email, password, username }));
-    localStorage.setItem("isLoggedIn", "false"); // Set initial login status to false
-    onClose();
-    onConfirmation();
+    try {
+      await registerUser({ email, password, name });
+      onClose();
+      onConfirmation(); // Call the confirmation handler after successful registration
+    } catch (error) {
+      setError(error.message || 'Registration failed');
+    }
   };
 
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
       <div className="popup__wrapper">
-        <h1 className="popup__title">Sign up</h1>
+        <h2 className="popup__title">Sign up</h2>
         <form className="popup__form" onSubmit={handleSubmit}>
           <label className="popup__label-email">Email</label>
           <input
@@ -61,7 +61,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             type="text"
             placeholder="Enter your username"
             required
-            value={username}
+            value={name}
             onChange={(e) => setUsername(e.target.value)}
           />
           {error && <p className="popup__error">{error}</p>}

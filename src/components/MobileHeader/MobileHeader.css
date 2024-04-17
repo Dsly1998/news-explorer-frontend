@@ -3,6 +3,7 @@
 .mobile-header {
   display: flex;
   align-items: center;
+  margin: 0;
   height: 56px;
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -12,7 +13,8 @@
   height: 56px;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 302px;
+  margin: auto;
 }
 
 .mobile-header__menu-button {
@@ -23,22 +25,22 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  margin: 16px 16px 16px 0px;
+  padding: 16px 16px 16px 0px;
 }
 
 .mobile-header__button--news-explorer {
   width: 117px;
   height: 24px;
-  font-family: Roboto Slab;
-  font-size: 16px;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
+  font-size: 15.7px;
   font-weight: 700;
   line-height: 24px;
-  letter-spacing: 0px;
+  letter-spacing: px;
   text-align: left;
   color: #ffffff;
   background: transparent;
   border: none;
-  margin: 16px 0px 16px 16px;
+  padding-top: 16px;
 }
 
 .mobile-header__menu-icon {
@@ -58,7 +60,7 @@
 .mobile-header__button--news-explorer-saved-news {
   width: 117px;
   height: 24px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', 'Roboto', 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;

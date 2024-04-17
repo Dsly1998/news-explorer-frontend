@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { loginUser } from "../../utils/auth";
 
-const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
+const PopupLogin = ({
+  isOpen,
+  onClose,
+  onSignUpClick,
+  setIsLoggedIn,
+  setToken,
+  fetchUserProfile,
+  setError,
+  fetchSavedArticles,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -11,40 +21,30 @@ const PopupLogin = ({ isOpen, onClose, onSignUpClick }) => {
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     setEmailError(isEmailValid || !email ? "" : "Invalid email address");
-    const areFieldsFilled = email && password;
-
-    setIsFormValid(isEmailValid && areFieldsFilled);
+    setIsFormValid(isEmailValid && email && password);
   }, [email, password]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setSubmitError("");
-    // Retrieve user data from localStorage
-    const storedUser = localStorage.getItem("user");
-    const userData = storedUser ? JSON.parse(storedUser) : null;
-    if (
-      userData &&
-      userData.email === email &&
-      userData.password === password
-    ) {
-      // Credentials match, set login state
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify({ email, name: userData.username })
-      );
-      onClose(); // Close the login modal
-      window.location.reload(); // Refresh the page to update state
-    } else {
-      // Credentials do not match, set error
-      setSubmitError("Invalid email or password");
+
+    try {
+      const response = await loginUser({ email, password });
+      setIsLoggedIn(true);
+      setToken(response.token);
+      localStorage.setItem("token", response.token); // Store the token
+      fetchUserProfile(response.token);
+      onClose();
+      fetchSavedArticles(response.token);
+    } catch (error) {
+      setError(error.message || "Login failed");
     }
   };
 
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
       <div className="popup__wrapper">
-        <h1 className="popup__title">Sign in</h1>
+        <h1 className="popup__title-login">Sign in</h1>
         <form className="popup__form" id="login" onSubmit={handleSubmit}>
           <label className="popup__label-email">Email</label>
           <input
