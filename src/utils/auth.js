@@ -5,7 +5,7 @@ const API_BASE_URL =
 
 export const registerUser = async (userData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/users/signup`, {
+    const response = await fetch(`${API_BASE_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -21,7 +21,7 @@ export const registerUser = async (userData) => {
 
 export const loginUser = async (credentials) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/users/signin`, {
+    const response = await fetch(`${API_BASE_URL}/signin`, {
       // Corrected URL
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ export const loginUser = async (credentials) => {
 
 export const getUserProfile = async (token) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/users/me`, {
+    const response = await fetch(`${API_BASE_URL}/me`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
