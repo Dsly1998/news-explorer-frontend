@@ -39,7 +39,7 @@ export const loginUser = async (credentials) => {
 
 export const getUserProfile = async (token) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/me`, {
+    const response = await fetch(`${API_BASE_URL}/users/me`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
