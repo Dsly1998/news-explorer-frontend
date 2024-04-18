@@ -1,6 +1,6 @@
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://api.articlelist.ignorelist.com"
+    ? "https://articlelist.ignorelist.com"
     : "http://localhost:3001";
 
 // Fetch articles by a user
