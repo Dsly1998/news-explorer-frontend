@@ -15,18 +15,32 @@ const PopupLogin = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     setEmailError(isEmailValid || !email ? "" : "Invalid email address");
-    setIsFormValid(isEmailValid && email && password);
+
+    const isPasswordValid = password.length >= 6; // Example: Password must be at least 6 characters long
+    setPasswordError(
+      isPasswordValid || !password
+        ? ""
+        : "Password must be at least 6 characters long"
+    );
+
+    setIsFormValid(isEmailValid && isPasswordValid);
   }, [email, password]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setSubmitError("");
+
+    if (!isFormValid) {
+      setSubmitError("Please fill out all fields correctly.");
+      return;
+    }
 
     try {
       const response = await loginUser({ email, password });
@@ -55,7 +69,6 @@ const PopupLogin = ({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {submitError && <p className="popup__error-login">{submitError}</p>}
           {emailError && <p className="popup__error-login">{emailError}</p>}
           <label className="popup__label-password">Password</label>
           <input
@@ -66,6 +79,10 @@ const PopupLogin = ({
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {passwordError && (
+            <p className="popup__error-login">{passwordError}</p>
+          )}
+          {submitError && <p className="popup__error-login">{submitError}</p>}
           <button
             className={`popup__submit ${
               !isFormValid ? "popup__submit-disabled" : ""

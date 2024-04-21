@@ -6,18 +6,33 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setUsername] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [nameError, setNameError] = useState("");
   const [error, setError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    setIsFormValid(isEmailValid && email && password && name);
+    setEmailError(isEmailValid || !email ? "" : "Invalid email address");
+
+    const isPasswordValid = password.length >= 6; // Example validation, adjust as needed
+    setPasswordError(
+      isPasswordValid || !password
+        ? ""
+        : "Password must be at least 6 characters"
+    );
+
+    const isNameValid = name.length >= 2; // Example validation, adjust as needed
+    setNameError(
+      isNameValid || !name ? "" : "Username must be at least 2 characters"
+    );
+
+    setIsFormValid(isEmailValid && isPasswordValid && isNameValid);
   }, [email, password, name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
     if (!isFormValid) {
       setError("Please fill out all fields correctly.");
       return;
@@ -28,7 +43,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
       onClose();
       onConfirmation(); // Call the confirmation handler after successful registration
     } catch (error) {
-      setError(error.message || 'Registration failed');
+      setError(error.message || "Registration failed");
     }
   };
 
@@ -46,7 +61,8 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label className="popup__label-password" >Password</label>
+          {emailError && <p className="popup__error">{emailError}</p>}
+          <label className="popup__label-password">Password</label>
           <input
             className="popup__input"
             type="password"
@@ -55,6 +71,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {passwordError && <p className="popup__error">{passwordError}</p>}
           <label className="popup__label-username">Username</label>
           <input
             className="popup__input"
@@ -64,6 +81,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             value={name}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {nameError && <p className="popup__error">{nameError}</p>}
           {error && <p className="popup__error">{error}</p>}
           <button
             className={`popup__submit ${
