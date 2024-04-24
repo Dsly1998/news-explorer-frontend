@@ -10,12 +10,20 @@ export const registerUser = async (userData) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
     });
+
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      // First, attempt to parse the response as JSON to extract any specific error message
+      const errorResponse = await response.json();
+      const errorMessage =
+        errorResponse.message || `HTTP error! Status: ${response.status}`;
+      throw new Error(errorMessage);
     }
+
     return await response.json();
   } catch (error) {
+    // Log the error to the console and then re-throw it to be handled by the calling code
     console.error("Error registering user:", error);
+    throw error; // Re-throw to allow the calling function to handle it
   }
 };
 

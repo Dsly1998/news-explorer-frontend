@@ -9,7 +9,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [nameError, setNameError] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
@@ -39,11 +39,15 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
     }
 
     try {
-      await registerUser({ email, password, name });
-      onClose();
+      const user = await registerUser({ email, password, name });
       onConfirmation(); // Call the confirmation handler after successful registration
+      onClose(); // Close the popup on successful registration
+      setError(null); // Clear any existing errors
     } catch (error) {
-      setError(error.message || "Registration failed");
+      setError(
+        error.message || "Registration failed due to network or server error."
+      );
+      // The modal stays open, and no confirmation is called
     }
   };
 
@@ -82,7 +86,7 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
           {nameError && <p className="popup__error">{nameError}</p>}
-          {error && <p className="popup__error">{error}</p>}
+          {error && <p className="popup__error-submit">{error}</p>}
           <button
             className={`popup__submit ${
               !isFormValid ? "popup__submit-disabled" : ""

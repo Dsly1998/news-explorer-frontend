@@ -217,6 +217,21 @@
   margin: 0 0 0 0;
 }
 
+.popup__error-submit{
+  width: 292px;
+  height: 0px;
+  font-family: "Inter", "Roboto", "Roboto Slab", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ff0000;
+  margin: auto;
+  position: relative;
+  top: 20px
+}
+
 .popup__wrapper {
   padding-top: 34px;
 }
@@ -326,4 +341,9 @@
   .popup__error-login {
     margin: auto;
   }
+
+.popup__error-submit{
+  top: 9px;
+}
+
 }

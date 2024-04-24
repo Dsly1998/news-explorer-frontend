@@ -58,16 +58,6 @@ function App() {
     }
   };
 
-  const handleSignUp = async (signupData) => {
-    try {
-      await registerUser(signupData);
-      setSignUpOpen(false);
-      setConfirmationOpen(true);
-    } catch (error) {
-      setError(`Signup Error: ${error.message}`);
-    }
-  };
-
   const fetchSavedArticles = async (userToken) => {
     try {
       const articles = await getArticlesByUser(userToken);
@@ -102,7 +92,6 @@ function App() {
     <Router>
       <RedirectToHomeOnLogout />
       <div className="app">
-        {error && <p className="app__error">{error}</p>}
         <Routes>
           <Route
             path="/"
@@ -144,8 +133,8 @@ function App() {
           isOpen={isSignUpOpen}
           onClose={toggleSignUp}
           onSignInClick={handleSignInClick}
-          onSignUp={handleSignUp}
           onConfirmation={toggleConfirmation}
+          setError={setError}
         />
         <PopupConfirmation
           isOpen={isConfirmationOpen}
