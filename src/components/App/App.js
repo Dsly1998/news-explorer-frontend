@@ -11,7 +11,7 @@ import PopupLogin from "../PopupLogin/PopupLogin";
 import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNews from "../SavedNews/SavedNews";
-import { registerUser, getUserProfile } from "../../utils/auth";
+import { getUserProfile } from "../../utils/auth";
 import { getArticlesByUser } from "../../utils/api";
 import "./App.css";
 import "../../vendor/Style.css";
@@ -24,7 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState(null);
   const [savedArticles, setSavedArticles] = useState([]);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
 
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
@@ -103,6 +103,7 @@ function App() {
                 currentUser={currentUser}
                 handleLogout={handleLogout}
                 token={token}
+                setSavedArticles={setSavedArticles}
               />
             }
           />

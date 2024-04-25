@@ -5,7 +5,11 @@ import bookmarkFilled from "../../images/bookmarkfilled.svg";
 import bookmarkBlack from "../../images/bookmarkblack.svg";
 import trash from "../../images/trash.svg";
 import trashDark from "../../images/trash-black.svg";
-import { createArticle, getArticlesByUser } from "../../utils/api";
+import {
+  createArticle,
+  getArticlesByUser,
+  deleteArticle,
+} from "../../utils/api";
 
 function NewsCard({
   article,
@@ -23,7 +27,7 @@ function NewsCard({
     const checkIfArticleIsSaved = async () => {
       const articles = await getArticlesByUser(token);
       setIsSaved(
-        articles.some((savedArticle) => savedArticle._id === article._id)
+        articles.some((savedArticle) => savedArticle.url === article.url)
       );
     };
 
@@ -38,14 +42,25 @@ function NewsCard({
       return;
     }
 
-    if (isInSavedNewsRoute) {
-      onArticleDelete && onArticleDelete(article._id);
-    } else {
-      if (!isSaved) {
-        await createArticle(article, token);
-        setIsSaved(true);
-        onArticleSave && onArticleSave(article);
+    if (isSaved) {
+      const savedArticles = await getArticlesByUser(token);
+      const articleToDelete = savedArticles.find(
+        (savedArticle) => savedArticle.url === article.url
+      );
+
+      if (articleToDelete) {
+        // Delete the article using the deleteArticle function
+        await deleteArticle(articleToDelete._id, token);
+        setIsSaved(false); // Update state to reflect that the article is no longer saved
+        onArticleDelete && onArticleDelete(articleToDelete._id); // Optional: trigger any additional cleanup
+      } else {
+        console.error("Failed to find the article to delete by URL");
       }
+    } else {
+      // If the bookmark is not filled, save the article
+      await createArticle(article, token);
+      setIsSaved(true);
+      onArticleSave && onArticleSave(article);
     }
   };
 
