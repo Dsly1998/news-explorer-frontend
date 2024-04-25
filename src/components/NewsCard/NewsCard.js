@@ -5,10 +5,7 @@ import bookmarkFilled from "../../images/bookmarkfilled.svg";
 import bookmarkBlack from "../../images/bookmarkblack.svg";
 import trash from "../../images/trash.svg";
 import trashDark from "../../images/trash-black.svg";
-import {
-  createArticle,
-  getArticlesByUser,
-} from "../../utils/api"; 
+import { createArticle, getArticlesByUser } from "../../utils/api";
 
 function NewsCard({
   article,
@@ -17,8 +14,9 @@ function NewsCard({
   onArticleDelete,
   isLoggedIn,
   token,
+  onSignInClick,
 }) {
-  const [isSaved, setIsSaved] = useState(false); 
+  const [isSaved, setIsSaved] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
@@ -35,10 +33,13 @@ function NewsCard({
   }, [article, isLoggedIn, token]);
 
   const handleSaveClick = async () => {
-    if (!isLoggedIn) return;
+    if (!isLoggedIn) {
+      onSignInClick(); // Triggering the login/registration popup
+      return;
+    }
 
     if (isInSavedNewsRoute) {
-      onArticleDelete && onArticleDelete(article._id); 
+      onArticleDelete && onArticleDelete(article._id);
     } else {
       if (!isSaved) {
         await createArticle(article, token);

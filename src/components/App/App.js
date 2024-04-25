@@ -99,6 +99,7 @@ function App() {
               <Main
                 toggleLogin={toggleLogin}
                 isLoggedIn={isLoggedIn}
+                onSignInClick={handleSignInClick}
                 currentUser={currentUser}
                 handleLogout={handleLogout}
                 token={token}

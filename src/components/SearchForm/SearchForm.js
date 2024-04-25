@@ -5,7 +5,7 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader";
 
-function SearchForm({ isLoggedIn, token }) {
+function SearchForm({ isLoggedIn, token, onSignInClick }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [articles, setArticles] = useState([]);
@@ -35,7 +35,7 @@ function SearchForm({ isLoggedIn, token }) {
   };
 
   return (
-    <section className="search-form"> 
+    <section className="search-form">
       <div className="search-form__search-bar">
         <input
           type="text"
@@ -53,7 +53,12 @@ function SearchForm({ isLoggedIn, token }) {
       ) : (
         searchPerformed &&
         (articles.length > 0 ? (
-          <NewsCardList articles={articles} isLoggedIn={isLoggedIn} token={token}/>
+          <NewsCardList
+            articles={articles}
+            isLoggedIn={isLoggedIn}
+            token={token}
+            onSignInClick={onSignInClick}
+          />
         ) : (
           <NotFound />
         ))

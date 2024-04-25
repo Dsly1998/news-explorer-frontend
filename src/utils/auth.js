@@ -30,18 +30,23 @@ export const registerUser = async (userData) => {
 export const loginUser = async (credentials) => {
   try {
     const response = await fetch(`${API_BASE_URL}/signin`, {
-      // Corrected URL
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
     });
+
     if (!response.ok) {
-      throw new Error("Login failed");
+      // Attempt to parse the response as JSON to extract any specific error message
+      const errorResponse = await response.json();
+      const errorMessage =
+        errorResponse.message || `Login failed: Status ${response.status}`;
+      throw new Error(errorMessage);
     }
+
     return await response.json();
   } catch (error) {
     console.error("Error logging in:", error);
-    throw error;
+    throw error; // Re-throw the error to allow the calling function to handle it
   }
 };
 

@@ -9,21 +9,20 @@ const PopupLogin = ({
   setIsLoggedIn,
   setToken,
   fetchUserProfile,
-  setError,
   fetchSavedArticles,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [submitError, setSubmitError] = useState("");
+  const [error, setError] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     setEmailError(isEmailValid || !email ? "" : "Invalid email address");
 
-    const isPasswordValid = password.length >= 6; // Example: Password must be at least 6 characters long
+    const isPasswordValid = password.length >= 6; // Password must be at least 6 characters long
     setPasswordError(
       isPasswordValid || !password
         ? ""
@@ -35,10 +34,10 @@ const PopupLogin = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitError("");
+    setError("");
 
     if (!isFormValid) {
-      setSubmitError("Please fill out all fields correctly.");
+      setError("Please fill out all fields correctly.");
       return;
     }
 
@@ -51,7 +50,8 @@ const PopupLogin = ({
       onClose();
       fetchSavedArticles(response.token);
     } catch (error) {
-      setError(error.message || "Login failed");
+      setError(error.message || "Login failed due to network or server error.");
+      // Keep the modal open and show the error message
     }
   };
 
@@ -82,7 +82,7 @@ const PopupLogin = ({
           {passwordError && (
             <p className="popup__error-login">{passwordError}</p>
           )}
-          {submitError && <p className="popup__error-login">{submitError}</p>}
+          {error && <p className="popup__error-submit">{error}</p>}
           <button
             className={`popup__submit ${
               !isFormValid ? "popup__submit-disabled" : ""

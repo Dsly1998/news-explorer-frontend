@@ -3,26 +3,29 @@ import NewsCard from "../NewsCard/NewsCard";
 import { createArticle, getArticlesByUser } from "../../utils/api"; // Adjust this path
 import "./NewsCardList.css";
 
-function NewsCardList({ articles, isLoggedIn, token }) { // Ensure token is passed as a prop
+function NewsCardList({ articles, isLoggedIn, token, onSignInClick }) {
+  // Ensure token is passed as a prop
   const [visibleArticles, setVisibleArticles] = useState(3);
 
   // Handle saving an article
   const onSave = async (article) => {
     try {
       const savedArticles = await getArticlesByUser(token);
-      const isSaved = savedArticles.some(savedArticle => savedArticle._id === article._id);
+      const isSaved = savedArticles.some(
+        (savedArticle) => savedArticle._id === article._id
+      );
       if (!isSaved) {
         await createArticle(article, token);
         // Add any additional logic if needed after saving the article
       }
     } catch (error) {
-      console.error('Error saving article:', error);
+      console.error("Error saving article:", error);
       // Handle error appropriately
     }
   };
 
   const loadMoreArticles = () => {
-    setVisibleArticles(prevVisible => prevVisible + 3);
+    setVisibleArticles((prevVisible) => prevVisible + 3);
   };
 
   return (
@@ -36,6 +39,7 @@ function NewsCardList({ articles, isLoggedIn, token }) { // Ensure token is pass
             onSave={onSave}
             isLoggedIn={isLoggedIn}
             token={token} // Pass the token to NewsCard
+            onSignInClick={onSignInClick}
           />
         ))}
       </div>

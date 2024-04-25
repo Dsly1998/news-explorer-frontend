@@ -7,7 +7,14 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import "./Main.css";
 
-function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout, token }) {
+function Main({
+  toggleLogin,
+  isLoggedIn,
+  currentUser,
+  handleLogout,
+  token,
+  onSignInClick,
+}) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [isPopupMenuOpen, setIsPopupMenuOpen] = useState(false);
 
@@ -60,7 +67,7 @@ function Main({ toggleLogin, isLoggedIn, currentUser, handleLogout, token }) {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <SearchForm isLoggedIn={isLoggedIn} token={token} />
+        <SearchForm isLoggedIn={isLoggedIn} token={token} onSignInClick={onSignInClick} />
         <About />
         <Footer />
       </div>
