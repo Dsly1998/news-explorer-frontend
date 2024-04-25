@@ -1,3 +1,5 @@
+import { checkResponse } from "./api";
+
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://api.articlelist.ignorelist.com"
@@ -55,10 +57,8 @@ export const getUserProfile = async (token) => {
     const response = await fetch(`${API_BASE_URL}/users/me`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch user profile");
-    }
+    }).then(checkResponse);
+
     return await response.json();
   } catch (error) {
     console.error("Error fetching user profile:", error);
