@@ -12,7 +12,7 @@ import PopupConfirmation from "../PopupConfirmation/PopupConfirmation";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNews from "../SavedNews/SavedNews";
 import { getUserProfile } from "../../utils/auth";
-import { getArticlesByUser } from "../../utils/api";
+import { getArticlesByUser, deleteArticle } from "../../utils/api";
 import "./App.css";
 import "../../vendor/Style.css";
 
@@ -24,7 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useState(null);
   const [savedArticles, setSavedArticles] = useState([]);
-  const [setError] = useState(null);
+  const [error, setError] = useState(null);
 
   const toggleLogin = () => setLoginOpen(!isLoginOpen);
   const toggleSignUp = () => setSignUpOpen(!isSignUpOpen);
@@ -47,6 +47,18 @@ function App() {
     setToken(null);
     localStorage.removeItem("token");
     setSavedArticles([]);
+  };
+
+  const handleUnsaveArticle = async (articleId) => {
+    try {
+      await deleteArticle(articleId, token);
+      setSavedArticles((currentArticles) =>
+        currentArticles.filter((article) => article._id !== articleId)
+      );
+    } catch (error) {
+      console.error("Error deleting article:", error);
+      // Optionally, update the UI to show an error message
+    }
   };
 
   const fetchUserProfile = async (token) => {
@@ -103,7 +115,6 @@ function App() {
                 currentUser={currentUser}
                 handleLogout={handleLogout}
                 token={token}
-                setSavedArticles={setSavedArticles}
               />
             }
           />
@@ -116,6 +127,7 @@ function App() {
                   savedArticles={savedArticles}
                   handleLogout={handleLogout}
                   token={token}
+                  handleUnsaveArticle={handleUnsaveArticle}
                 />
               </ProtectedRoute>
             }
@@ -137,6 +149,7 @@ function App() {
           onSignInClick={handleSignInClick}
           onConfirmation={toggleConfirmation}
           setError={setError}
+          error={error}
         />
         <PopupConfirmation
           isOpen={isConfirmationOpen}
