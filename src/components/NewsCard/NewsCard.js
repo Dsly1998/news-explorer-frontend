@@ -15,7 +15,7 @@ function NewsCard({
   article,
   isInSavedNewsRoute,
   onArticleSave,
-  onArticleDelete,
+  handleArticleDisplay,
   isLoggedIn,
   token,
   onSignInClick,
@@ -38,7 +38,7 @@ function NewsCard({
 
   const handleSaveClick = async () => {
     if (!isLoggedIn) {
-      onSignInClick(); // Triggering the login/registration popup
+      onSignInClick(); // Trigger the login/registration popup
       return;
     }
 
@@ -52,7 +52,11 @@ function NewsCard({
         // Delete the article using the deleteArticle function
         await deleteArticle(articleToDelete._id, token);
         setIsSaved(false); // Update state to reflect that the article is no longer saved
-        onArticleDelete && onArticleDelete(articleToDelete._id); // Optional: trigger any additional cleanup
+
+        // Only run handleArticleDisplay if in the saved-news route
+        if (isInSavedNewsRoute) {
+          handleArticleDisplay(article._id);
+        }
       } else {
         console.error("Failed to find the article to delete by URL");
       }

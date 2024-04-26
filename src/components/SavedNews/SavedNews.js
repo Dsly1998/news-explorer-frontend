@@ -43,16 +43,10 @@ function SavedNews({ currentUser, handleLogout, token }) {
     return () => window.removeEventListener("resize", handleResize);
   }, [currentUser, token]);
 
-  const handleUnsaveArticle = async (articleId) => {
-    try {
-      await deleteArticle(articleId, token);
-      setSavedArticles((currentArticles) =>
-        currentArticles.filter((article) => article._id !== articleId)
-      );
-    } catch (error) {
-      console.error("Error deleting article:", error);
-      // Optionally, update the UI to show an error message
-    }
+  const handleArticleDisplay = async (articleId) => {
+    setSavedArticles((currentArticles) =>
+      currentArticles.filter((article) => article._id !== articleId)
+    );
   };
 
   const extractKeywords = (articles) => {
@@ -97,7 +91,7 @@ function SavedNews({ currentUser, handleLogout, token }) {
               <NewsCard
                 key={article._id} // Use _id instead of title for key
                 article={article}
-                onArticleDelete={handleUnsaveArticle}
+                handleArticleDisplay={handleArticleDisplay}
                 isInSavedNewsRoute={true}
                 isLoggedIn={!!currentUser}
                 token={token}
