@@ -82,20 +82,10 @@ function App() {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
-      // Assuming fetchUserProfile or a similar function that hits a protected route
-      fetchUserProfile(storedToken)
-        .then((user) => {
-          setIsLoggedIn(true); // Set login state only after token is verified
-          setCurrentUser(user); // Update user state
-          setToken(storedToken); // Store the token in state
-          fetchSavedArticles(storedToken); // Fetch additional data as needed
-        })
-        .catch((error) => {
-          console.error(error.message);
-          localStorage.removeItem("token"); // Remove invalid token
-          setIsLoggedIn(false); // Ensure user is logged out on frontend
-          // Optionally, redirect user to login page or show error message
-        });
+      setToken(storedToken);
+      setIsLoggedIn(true);
+      fetchUserProfile(storedToken);
+      fetchSavedArticles(storedToken);
     }
   }, []);
 
