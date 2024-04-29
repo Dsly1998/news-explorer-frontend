@@ -15,39 +15,35 @@ function SearchForm({ isLoggedIn, token, onSignInClick }) {
     setSearchTerm(event.target.value);
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
-  const handleSearch = async () => {
+  const handleSearch = async (event) => {
+    event.preventDefault(); // Prevent the form from causing a page reload
     setSearchPerformed(true);
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     try {
       const fetchedArticles = await fetchNews(searchTerm);
       setArticles(fetchedArticles);
     } catch (error) {
       console.error("Error fetching articles:", error);
     } finally {
-      setIsLoading(false); // Stop loading regardless of the outcome
+      setIsLoading(false);
     }
   };
 
   return (
     <section className="search-form">
-      <div className="search-form__search-bar">
+      <form onSubmit={handleSearch} className="search-form__search-bar">
         <input
           type="text"
           className="search-form__search-input"
           placeholder="Enter topic"
+          value={searchTerm}
           onChange={handleInputChange}
-          onKeyDown={handleKeyPress}
         />
-        <button className="search-form__search-button" onClick={handleSearch}>
+        <button type="submit" className="search-form__search-button">
           Search
         </button>
-      </div>
+      </form>
+
       {isLoading ? (
         <Preloader />
       ) : (

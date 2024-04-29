@@ -16,6 +16,7 @@ export const getArticlesByUser = async (token) => {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   }).then(checkResponse);
+
   return await response
     .json()
     .then((data) => (Array.isArray(data) ? data : []));
@@ -23,7 +24,7 @@ export const getArticlesByUser = async (token) => {
 
 // Create a new article
 export const createArticle = async (articleData, token) => {
-  const { isSaved, ...dataToSend } = articleData; // Destructure to remove isSaved from the data sent to the server
+  const { isSaved, ...dataToSend } = articleData;
   const response = await fetch(`${API_BASE_URL}/articles`, {
     method: "POST",
     headers: {
@@ -32,6 +33,7 @@ export const createArticle = async (articleData, token) => {
     },
     body: JSON.stringify(dataToSend),
   }).then(checkResponse);
+
   return await response.json();
 };
 
@@ -41,16 +43,6 @@ export const deleteArticle = async (articleId, token) => {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
   }).then(checkResponse);
-  return await response.json();
-};
 
-// Check if an article is saved
-export const isArticleSaved = async (articleId, token) => {
-  try {
-    console.log("Checking saved status for article ID:", articleId);
-    const articles = await getArticlesByUser(token);
-    return articles.some((article) => article._id === articleId);
-  } catch (error) {
-    console.error("Error checking if article is saved:", error);
-  }
+  return await response.json();
 };
