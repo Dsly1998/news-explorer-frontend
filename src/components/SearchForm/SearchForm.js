@@ -3,9 +3,9 @@ import "./SearchForm.css";
 import fetchNews from "../../utils/NewsApi";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader"; // Adjust the path as per your folder structure
+import Preloader from "../Preloader/Preloader";
 
-function SearchForm({ isLoggedIn }) {
+function SearchForm({ isLoggedIn, token, onSignInClick }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [articles, setArticles] = useState([]);
@@ -15,50 +15,51 @@ function SearchForm({ isLoggedIn }) {
     setSearchTerm(event.target.value);
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
-  const handleSearch = async () => {
+  const handleSearch = async (event) => {
+    event.preventDefault(); // Prevent the form from causing a page reload
     setSearchPerformed(true);
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     try {
       const fetchedArticles = await fetchNews(searchTerm);
       setArticles(fetchedArticles);
     } catch (error) {
       console.error("Error fetching articles:", error);
     } finally {
-      setIsLoading(false); // Stop loading regardless of the outcome
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="Search-Form">
-      <div className="Search-Form__search-bar">
+    <section className="search-form">
+      <form onSubmit={handleSearch} className="search-form__search-bar">
         <input
           type="text"
-          className="Search-Form__search-input"
+          className="search-form__search-input"
           placeholder="Enter topic"
+          value={searchTerm}
           onChange={handleInputChange}
-          onKeyDown={handleKeyPress}
         />
-        <button className="Search-Form__search-button" onClick={handleSearch}>
+        <button type="submit" className="search-form__search-button">
           Search
         </button>
-      </div>
+      </form>
+
       {isLoading ? (
         <Preloader />
       ) : (
         searchPerformed &&
         (articles.length > 0 ? (
-          <NewsCardList articles={articles} isLoggedIn={isLoggedIn} />
+          <NewsCardList
+            articles={articles}
+            isLoggedIn={isLoggedIn}
+            token={token}
+            onSignInClick={onSignInClick}
+          />
         ) : (
           <NotFound />
         ))
       )}
-    </div>
+    </section>
   );
 }
 

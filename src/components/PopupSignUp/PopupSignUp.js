@@ -1,41 +1,60 @@
 import React, { useState, useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { registerUser } from "../../utils/auth"; // Adjust this path
 
 const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
+  const [name, setUsername] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [error, setError] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  // Update the form validity whenever there's a change in the fields
   useEffect(() => {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const areFieldsFilled = email && password && username;
-    const isDuplicateEmail = localStorage.getItem(email) !== null;
+    setEmailError(isEmailValid || !email ? "" : "Invalid email address");
 
-    setIsFormValid(isEmailValid && areFieldsFilled && !isDuplicateEmail);
-  }, [email, password, username]);
+    const isPasswordValid = password.length >= 6; // Example validation, adjust as needed
+    setPasswordError(
+      isPasswordValid || !password
+        ? ""
+        : "Password must be at least 6 characters"
+    );
+
+    const isNameValid = name.length >= 2; // Example validation, adjust as needed
+    setNameError(
+      isNameValid || !name ? "" : "Username must be at least 2 characters"
+    );
+
+    setIsFormValid(isEmailValid && isPasswordValid && isNameValid);
+  }, [email, password, name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
     if (!isFormValid) {
       setError("Please fill out all fields correctly.");
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify({ email, password, username }));
-    localStorage.setItem("isLoggedIn", "false"); // Set initial login status to false
-    onClose();
-    onConfirmation();
+    try {
+      const user = await registerUser({ email, password, name });
+      onConfirmation(); // Call the confirmation handler after successful registration
+      onClose(); // Close the popup on successful registration
+      setError(null); // Clear any existing errors
+    } catch (error) {
+      setError(
+        error.message || "Registration failed due to network or server error."
+      );
+      // The modal stays open, and no confirmation is called
+    }
   };
 
   return (
     <PopupWithForm isOpen={isOpen} onClose={onClose}>
       <div className="popup__wrapper">
-        <h1 className="popup__title">Sign up</h1>
+        <h2 className="popup__title">Sign up</h2>
         <form className="popup__form" onSubmit={handleSubmit}>
           <label className="popup__label-email">Email</label>
           <input
@@ -46,7 +65,8 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label className="popup__label-password" >Password</label>
+          {emailError && <p className="popup__error">{emailError}</p>}
+          <label className="popup__label-password">Password</label>
           <input
             className="popup__input"
             type="password"
@@ -55,16 +75,18 @@ const PopupSignUp = ({ isOpen, onClose, onSignInClick, onConfirmation }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {passwordError && <p className="popup__error">{passwordError}</p>}
           <label className="popup__label-username">Username</label>
           <input
             className="popup__input"
             type="text"
             placeholder="Enter your username"
             required
-            value={username}
+            value={name}
             onChange={(e) => setUsername(e.target.value)}
           />
-          {error && <p className="popup__error">{error}</p>}
+          {nameError && <p className="popup__error">{nameError}</p>}
+          {error && <p className="popup__error-submit">{error}</p>}
           <button
             className={`popup__submit ${
               !isFormValid ? "popup__submit-disabled" : ""

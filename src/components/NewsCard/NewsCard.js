@@ -1,41 +1,70 @@
 import React, { useState, useEffect } from "react";
 import "./NewsCard.css";
 import bookmark from "../../images/bookmark.svg";
-import bookmarkFilled from "../../images/bookmark-filled.svg";
-import bookmarkBlack from "../../images/bookmark-black.svg"; // Path to your black bookmark icon
+import bookmarkFilled from "../../images/bookmarkfilled.svg";
+import bookmarkBlack from "../../images/bookmarkblack.svg";
 import trash from "../../images/trash.svg";
-import trashDark from "../../images/trash-dark.svg"; // Path to your dark trash icon
+import trashDark from "../../images/trash-black.svg";
 import {
-  isArticleSaved,
-  saveArticle,
+  createArticle,
+  getArticlesByUser,
   deleteArticle,
-} from "../../utils/LocalStorage";
+} from "../../utils/api";
 
 function NewsCard({
   article,
   isInSavedNewsRoute,
   onArticleSave,
-  onArticleDelete,
+  handleArticleDisplay,
   isLoggedIn,
+  token,
+  onSignInClick,
 }) {
-  const [isSaved, setIsSaved] = useState(isArticleSaved(article));
+  const [isSaved, setIsSaved] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    setIsSaved(isArticleSaved(article));
-  }, [article]);
+    const checkIfArticleIsSaved = async () => {
+      const articles = await getArticlesByUser(token);
+      setIsSaved(
+        articles.some((savedArticle) => savedArticle.url === article.url)
+      );
+    };
 
-  const handleSaveClick = () => {
-    if (!isLoggedIn && !isInSavedNewsRoute) return;
-    if (isInSavedNewsRoute) {
-      deleteArticle(article);
-      onArticleDelete && onArticleDelete(article);
-    } else {
-      if (!isSaved) {
-        saveArticle(article);
-        setIsSaved(true);
-        onArticleSave && onArticleSave(article);
+    if (isLoggedIn) {
+      checkIfArticleIsSaved();
+    }
+  }, [article, isLoggedIn, token]);
+
+  const handleSaveClick = async () => {
+    if (!isLoggedIn) {
+      onSignInClick(); // Trigger the login/registration popup
+      return;
+    }
+
+    if (isSaved) {
+      const savedArticles = await getArticlesByUser(token);
+      const articleToDelete = savedArticles.find(
+        (savedArticle) => savedArticle.url === article.url
+      );
+
+      if (articleToDelete) {
+        // Delete the article using the deleteArticle function
+        await deleteArticle(articleToDelete._id, token);
+        setIsSaved(false); // Update state to reflect that the article is no longer saved
+
+        // Only run handleArticleDisplay if in the saved-news route
+        if (isInSavedNewsRoute) {
+          handleArticleDisplay(article._id);
+        }
+      } else {
+        console.error("Failed to find the article to delete by URL");
       }
+    } else {
+      // If the bookmark is not filled, save the article
+      await createArticle(article, token);
+      setIsSaved(true);
+      onArticleSave && onArticleSave(article);
     }
   };
 
@@ -88,7 +117,9 @@ function NewsCard({
             <img
               src={icon}
               alt={isInSavedNewsRoute ? "Delete article" : "Save article"}
-              className="news-card__icon"
+              className={`news-card__icon ${
+                hovered ? "news-card__icon--hovered" : ""
+              }`}
             />
           </button>
         </div>
@@ -101,7 +132,7 @@ function NewsCard({
             day: "numeric",
           })}
         </span>
-        <h3 className="news-card__title">{article.title}</h3>
+        <h3 className="news-card__title">{article.content}</h3>
         <p className="news-card__description">{article.description}</p>
         <span className="news-card__source">{article.source.name}</span>
       </div>
