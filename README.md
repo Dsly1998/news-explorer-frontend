@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## News Explorer 
+
+This is the News Explorer App. Feel free to check it out at https://articlelist.ignorelist.com. This application allows you to search for and save articles that interest you. I used the React library to create this app and built it according to the exact specifications of the Figma design. It's a full-stack app; you're welcome to explore the backend in my repository.
+
+## Demo
+
+https://www.loom.com/share/8b90d964059545c6a7c93d3894efcec9?sid=3391f774-ecac-4616-a4b6-44255ee7cf11
+
 ## Available Scripts
 
 In the project directory, you can run:
